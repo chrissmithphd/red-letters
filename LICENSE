@@ -1,0 +1,137 @@
+# Red Letters - License Information
+
+This project contains multiple types of content with different licenses.
+
+## 1. Original Research & Documentation
+
+All original research, documentation, analysis, and compilation work in this repository is licensed under:
+
+**Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**
+
+Copyright (c) 2026 Chris Smith
+
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material for any purpose, even commercially
+
+Under the following terms:
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made
+- **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license
+
+Full license text: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+## 2. Ancient Texts & Translations
+
+### Canonical Biblical Texts
+- Greek New Testament: **Public Domain**
+- Hebrew Bible/Old Testament: **Public Domain**
+- Ancient manuscripts: **Public Domain**
+
+### Nag Hammadi Library
+- Coptic texts (4th century): **Public Domain** (ancient manuscripts)
+- Modern translations: Various licenses, cited in source files
+
+### Other Ancient Sources
+- Josephus, Tacitus, Pliny, etc.: **Public Domain**
+- Islamic sources (Quran, Hadith): Various licenses, cited individually
+
+### Modern Bible Translations
+Each modern translation has its own copyright and licensing terms:
+- **KJV (King James Version)**: Public Domain
+- **ASV (American Standard Version)**: Public Domain
+- **WEB (World English Bible)**: Public Domain
+- **ESV, NIV, NASB, NLT, etc.**: Copyright held by publishers, used under fair use for research
+
+When using translations, always check the specific translation's license terms.
+
+## 3. Software & Scripts
+
+All original software, scripts, and automation tools in this repository are licensed under:
+
+**MIT License**
+
+Copyright (c) 2026 Chris Smith
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## 4. Structured Data
+
+All structured data, databases, and extracted content (CSV, JSON, SQL, etc.) are dedicated to the public domain under:
+
+**CC0 1.0 Universal (CC0 1.0) Public Domain Dedication**
+
+To the extent possible under law, Chris Smith has waived all copyright and related or neighboring rights to the structured data in this repository.
+
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+
+Full license text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+## 5. Third-Party Resources
+
+### MCP Servers
+- **studybible-mcp**: [License TBD - check repository]
+- **TheologAI**: [License TBD - check repository]
+
+### APIs & Datasets
+- **GetBible API**: GPL-3.0 (data is GPL, API access terms separate)
+- **Bible APIs**: Various licenses, see `bible-resources-research.md`
+- **scrollmapper/bible_databases**: MIT License
+
+Each third-party resource retains its own license. See individual source files for citations.
+
+## Attribution Guidelines
+
+When using this research, please attribute as:
+
+```
+"Red Letters" research project by Chris Smith
+https://github.com/chrissmithphd/red-letters
+Licensed under CC BY-SA 4.0
+```
+
+For academic citation:
+```
+Smith, Chris. "Red Letters: A Comprehensive Catalog of Jesus's Teachings."
+GitHub repository, 2026. https://github.com/chrissmithphd/red-letters
+```
+
+## Fair Use Statement
+
+This project includes quotations from copyrighted biblical translations and scholarly works under the fair use doctrine (17 U.S.C. § 107) for purposes of:
+- Scholarship and research
+- Commentary and criticism
+- Teaching and education
+
+All quoted materials are:
+- Used in limited quantities
+- Properly attributed to original sources
+- Used in transformative ways for academic research
+- Non-commercial in nature (repository is public research)
+
+## Disclaimer
+
+This repository is a research project and makes no theological claims. Ancient texts, translations, and interpretations are presented for scholarly purposes. Users should consult original sources and scholarly consensus for authoritative information.
+
+The project maintainers make no warranty about the accuracy, completeness, or reliability of any content. Use at your own discretion.
+
+---
+
+**Questions about licensing?** Please [open an issue](https://github.com/chrissmithphd/red-letters/issues) with the label "licensing".
+
+Last updated: July 2026

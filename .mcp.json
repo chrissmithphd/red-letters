@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "studybible": {
+      "command": "/home/cbsmith/.claude/mcp-servers/studybible-mcp/venv/bin/python",
+      "args": ["-m", "studybible_mcp"]
+    },
+    "theologai": {
+      "command": "node",
+      "args": ["/home/cbsmith/.claude/mcp-servers/TheologAI/dist/index.js"]
+    }
+  }
+}
