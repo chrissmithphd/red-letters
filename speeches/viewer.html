@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Letters: Jesus's Public Speeches</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f0;
+        }
+
+        header {
+            background: #8b0000;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 4px solid #660000;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .metadata {
+            background: white;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 1400px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .metadata h2 {
+            color: #8b0000;
+            margin-bottom: 1rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .metadata-item {
+            padding: 0.5rem;
+        }
+
+        .metadata-item strong {
+            color: #555;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-text {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .main-text h2 {
+            color: #8b0000;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        .main-text h2:first-child {
+            margin-top: 0;
+        }
+
+        .verse {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #ddd;
+        }
+
+        .verse-text {
+            color: #8b0000;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .verse-ref {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .annotations {
+            background: #fffaf0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 1rem;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .annotations h3 {
+            color: #8b0000;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .annotation-card {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid #8b0000;
+        }
+
+        .annotation-card h4 {
+            color: #8b0000;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .greek-word {
+            background: #f0f0f0;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            color: #333;
+            display: inline-block;
+            margin: 0.25rem 0;
+        }
+
+        .mistranslation {
+            background: #ffe4e4;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .correct-translation {
+            background: #e4ffe4;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .discussion {
+            background: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1400px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .discussion h2 {
+            color: #8b0000;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        .discussion h3 {
+            color: #555;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .discussion ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .discussion li {
+            margin-bottom: 0.5rem;
+        }
+
+        .misinterpretation {
+            background: #fff5f5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .misinterpretation h4 {
+            color: #c92a2a;
+            margin-bottom: 0.5rem;
+        }
+
+        .correction {
+            background: #f0fff0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border-left: 4px solid #51cf66;
+        }
+
+        .correction h4 {
+            color: #2b8a3e;
+            margin-bottom: 0.5rem;
+        }
+
+        .extra-biblical {
+            background: #f0f8ff;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border-left: 4px solid #4dabf7;
+        }
+
+        .extra-biblical h4 {
+            color: #1971c2;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .annotations {
+                position: static;
+                max-height: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Red Letters</h1>
+        <p>The Words of Jesus from Historical Sources</p>
+    </header>
+
+    <div id="content"></div>
+
+    <script>
+        async function loadSpeech(speechId = 1) {
+            try {
+                const response = await fetch(`json-output/${String(speechId).padStart(2, '0')}-sermon-on-the-mount.json`);
+                const data = await response.json();
+                renderSpeech(data);
+            } catch (error) {
+                console.error('Error loading speech:', error);
+                document.getElementById('content').innerHTML = '<p style="text-align:center;color:red;">Error loading speech data</p>';
+            }
+        }
+
+        function renderSpeech(data) {
+            const content = document.getElementById('content');
+
+            // Metadata section
+            let html = `
+                <div class="metadata">
+                    <h2>${data.title}</h2>
+                    <div class="metadata-grid">
+                        <div class="metadata-item">
+                            <strong>Date:</strong> ${data.date}
+                        </div>
+                        <div class="metadata-item">
+                            <strong>Location:</strong> ${data.location}
+                        </div>
+                        <div class="metadata-item">
+                            <strong>Scripture:</strong> ${data.scripture_reference}
+                        </div>
+                        <div class="metadata-item">
+                            <strong>Audience:</strong> ${data.audience}
+                        </div>
+                        <div class="metadata-item">
+                            <strong>Translation:</strong> ${data.translation}
+                        </div>
+                        <div class="metadata-item">
+                            <strong>Duration:</strong> ${data.duration_estimate}
+                        </div>
+                    </div>
+                    ${data.scholarly_note ? `<p style="margin-top:1rem;font-style:italic;color:#666;">${data.scholarly_note}</p>` : ''}
+                </div>
+            `;
+
+            // Two-column layout
+            html += '<div class="container">';
+
+            // Main text column
+            html += '<div class="main-text">';
+            data.sections.forEach(section => {
+                html += `<h2>${section.title}</h2>`;
+                html += `<div class="verse-ref">${section.reference}</div>`;
+                section.text.forEach(verse => {
+                    html += `<div class="verse"><p class="verse-text">${verse}</p></div>`;
+                });
+            });
+            html += '</div>';
+
+            // Annotations column
+            html += '<div class="annotations">';
+            html += '<h3>Translation Notes</h3>';
+
+            data.sections.forEach(section => {
+                if (section.controversial_terms && section.controversial_terms.length > 0) {
+                    section.controversial_terms.forEach(term => {
+                        html += `
+                            <div class="annotation-card">
+                                <h4>"${term.english}"</h4>
+                                <div class="greek-word">${term.greek}</div>
+                                <div class="mistranslation">
+                                    <strong>❌ Common mistranslation:</strong> ${term.common_mistranslation}
+                                </div>
+                                <div class="correct-translation">
+                                    <strong>✓ Scholarly translation:</strong> ${term.scholarly_translation}
+                                </div>
+                                <p style="margin-top:0.5rem;"><strong>Explanation:</strong> ${term.explanation}</p>
+                                <p style="margin-top:0.5rem;font-style:italic;color:#666;"><strong>Why it matters:</strong> ${term.why_it_matters}</p>
+                            </div>
+                        `;
+                    });
+                }
+            });
+
+            html += '</div>'; // end annotations
+            html += '</div>'; // end container
+
+            // Discussion section
+            html += '<div class="discussion">';
+            html += '<h2>Scholarly Interpretation & Common Misunderstandings</h2>';
+
+            // Extra-biblical context
+            if (data.extra_biblical_context) {
+                html += '<h3>Extra-Biblical Sources & Context</h3>';
+
+                if (data.extra_biblical_context.dead_sea_scrolls) {
+                    html += '<h4>Dead Sea Scrolls Parallels</h4>';
+                    data.extra_biblical_context.dead_sea_scrolls.forEach(item => {
+                        html += `
+                            <div class="extra-biblical">
+                                <h4>${item.source}</h4>
+                                <p><strong>Parallel:</strong> ${item.parallel}</p>
+                                <p><strong>Significance:</strong> ${item.significance}</p>
+                            </div>
+                        `;
+                    });
+                }
+
+                if (data.extra_biblical_context.rabbinic_parallels) {
+                    html += '<h4>Rabbinic Parallels</h4>';
+                    data.extra_biblical_context.rabbinic_parallels.forEach(item => {
+                        html += `
+                            <div class="extra-biblical">
+                                <h4>${item.source}</h4>
+                                ${item.text ? `<p><em>"${item.text}"</em></p>` : ''}
+                                <p><strong>Parallel:</strong> ${item.parallel}</p>
+                                <p><strong>Significance:</strong> ${item.significance}</p>
+                            </div>
+                        `;
+                    });
+                }
+            }
+
+            // Scholarly interpretation by section
+            data.sections.forEach(section => {
+                if (section.scholarly_interpretation) {
+                    html += `<h3>${section.title}: Scholarly Consensus</h3>`;
+                    html += `<p><strong>Summary:</strong> ${section.scholarly_interpretation.summary}</p>`;
+
+                    if (section.scholarly_interpretation.key_points) {
+                        html += '<h4>Key Points</h4><ul>';
+                        section.scholarly_interpretation.key_points.forEach(point => {
+                            html += `<li>${point}</li>`;
+                        });
+                        html += '</ul>';
+                    }
+
+                    if (section.scholarly_interpretation.common_misinterpretations) {
+                        html += '<h4>Common Misinterpretations</h4>';
+                        section.scholarly_interpretation.common_misinterpretations.forEach(mis => {
+                            html += `
+                                <div class="misinterpretation">
+                                    <h4>❌ Error: ${mis.error}</h4>
+                                </div>
+                                <div class="correction">
+                                    <h4>✓ Correction: ${mis.correction}</h4>
+                                    ${mis.scholars ? `<p style="margin-top:0.5rem;"><em>Scholars: ${mis.scholars}</em></p>` : ''}
+                                </div>
+                            `;
+                        });
+                    }
+                }
+            });
+
+            // Overall interpretation
+            if (data.overall_scholarly_interpretation) {
+                html += '<h3>Overall Scholarly Interpretation</h3>';
+                html += `<p>${data.overall_scholarly_interpretation.summary}</p>`;
+
+                if (data.overall_scholarly_interpretation.major_themes) {
+                    html += '<h4>Major Themes</h4><ul>';
+                    data.overall_scholarly_interpretation.major_themes.forEach(theme => {
+                        html += `<li>${theme}</li>`;
+                    });
+                    html += '</ul>';
+                }
+
+                if (data.overall_scholarly_interpretation.why_past_interpretations_were_incorrect) {
+                    html += '<h4>Why Past Interpretations Were Incorrect</h4>';
+                    data.overall_scholarly_interpretation.why_past_interpretations_were_incorrect.forEach(item => {
+                        html += `
+                            <div class="misinterpretation">
+                                <h4>❌ Historical Error: ${item.error}</h4>
+                                <p><strong>Why wrong:</strong> ${item.why_wrong}</p>
+                            </div>
+                            <div class="correction">
+                                <h4>✓ Modern Understanding: ${item.correction}</h4>
+                            </div>
+                        `;
+                    });
+                }
+            }
+
+            html += `<h3>Conclusion</h3><p>${data.conclusion_summary}</p>`;
+
+            html += '</div>'; // end discussion
+
+            content.innerHTML = html;
+        }
+
+        // Load the first speech on page load
+        loadSpeech(1);
+    </script>
+</body>
+</html>
