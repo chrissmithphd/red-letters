@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Letters: Jesus's Public Speeches Navigator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Hamburger Menu Button */
+        .menu-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+            background: #8b0000;
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .menu-toggle:hover {
+            background: #660000;
+        }
+
+        .menu-toggle .icon {
+            display: inline-block;
+            width: 20px;
+            margin-right: 0.5rem;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 320px;
+            background: white;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            z-index: 1000;
+        }
+
+        .sidebar.collapsed {
+            transform: translateX(-320px);
+        }
+
+        .sidebar-header {
+            background: #8b0000;
+            color: white;
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .speech-list {
+            padding: 1rem;
+        }
+
+        .speech-item {
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .speech-item:hover {
+            background: #f9f9f9;
+            border-left-color: #8b0000;
+        }
+
+        .speech-item.active {
+            background: #fff5f5;
+            border-left-color: #8b0000;
+        }
+
+        .speech-item.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .speech-item.disabled:hover {
+            background: transparent;
+            border-left-color: transparent;
+        }
+
+        .speech-number {
+            display: inline-block;
+            background: #8b0000;
+            color: white;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            margin-right: 0.75rem;
+            font-weight: bold;
+        }
+
+        .speech-item.disabled .speech-number {
+            background: #ccc;
+        }
+
+        .speech-title {
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .speech-meta {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .speech-status {
+            font-size: 0.7rem;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            margin-left: 320px;
+            transition: margin-left 0.3s ease;
+            overflow-y: auto;
+            background: #f5f5f0;
+        }
+
+        .main-content.expanded {
+            margin-left: 0;
+        }
+
+        .content-wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        /* Header inside content */
+        header {
+            background: #8b0000;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 4px solid #660000;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* Reuse styles from viewer-v2.html */
+        .metadata {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .metadata h2 {
+            color: #8b0000;
+            margin-bottom: 1rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .metadata-item {
+            padding: 0.5rem;
+        }
+
+        .metadata-item strong {
+            color: #555;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .section-row {
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .section-text {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-text h2 {
+            color: #8b0000;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .section-ref {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .verse {
+            margin-bottom: 0.75rem;
+            padding-left: 1rem;
+            border-left: 3px solid #ddd;
+        }
+
+        .verse-text {
+            color: #8b0000;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .section-notes {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .note-group {
+            margin-bottom: 2rem;
+        }
+
+        .translation-note {
+            background: #fafafa;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid #8b0000;
+        }
+
+        .translation-note h4 {
+            color: #8b0000;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .greek-word {
+            background: #f0f0f0;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            color: #333;
+            display: inline-block;
+            margin: 0.25rem 0;
+            font-size: 1.05rem;
+        }
+
+        .translation-variants {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .translation-variants p {
+            margin: 0.25rem 0;
+            padding-left: 1rem;
+        }
+
+        .interpretation-note {
+            background: #f0f8ff;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid #4a90e2;
+        }
+
+        .interpretation-note h4 {
+            color: #1a5490;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .interpretation-note p, .interpretation-note ul {
+            font-size: 0.95rem;
+        }
+
+        .external-source {
+            background: #fff9e6;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid #d4a017;
+        }
+
+        .external-source h4 {
+            color: #8b6914;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .conclusion-section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .conclusion-section h2 {
+            color: #8b0000;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        @media (max-width: 1200px) {
+            .section-row {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                width: 280px;
+            }
+
+            .sidebar.collapsed {
+                transform: translateX(-280px);
+            }
+
+            .main-content {
+                margin-left: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+            }
+
+            .sidebar.collapsed {
+                transform: translateX(-100%);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .main-content.expanded {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <span class="icon">☰</span>
+        <span class="label">Speeches</span>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1>Red Letters</h1>
+            <p>Jesus's Public Speeches</p>
+        </div>
+        <div class="speech-list" id="speechList"></div>
+    </nav>
+
+    <main class="main-content" id="mainContent">
+        <div class="content-wrapper" id="contentWrapper"></div>
+    </main>
+
+    <script>
+        const speeches = [
+            { id: 1, title: "Nazareth Synagogue Sermon", date: "Early 28 CE", ref: "Luke 4:16-30", available: true },
+            { id: 2, title: "Capernaum Synagogue Teaching", date: "Early 28 CE", ref: "Mark 1:21-28", available: true },
+            { id: 3, title: "Sermon on the Mount", date: "Spring 28 CE", ref: "Matthew 5-7", available: true },
+            { id: 4, title: "Sermon on the Plain", date: "Spring 28 CE", ref: "Luke 6:17-49", available: true },
+            { id: 5, title: "Parables by the Sea", date: "Summer 28 CE", ref: "Matthew 13", available: true },
+            { id: 6, title: "Bread of Life Discourse", date: "Spring 29 CE", ref: "John 6:22-71", available: true },
+            { id: 7, title: "Feast of Tabernacles", date: "Fall 29 CE", ref: "John 7-8", available: false },
+            { id: 8, title: "Teaching on Defilement", date: "Summer 29 CE", ref: "Matthew 15", available: false },
+            { id: 9, title: "Feeding of 4,000", date: "Summer 29 CE", ref: "Matthew 15:32-39", available: false },
+            { id: 10, title: "Teaching on Forgiveness", date: "Fall 29 CE", ref: "Matthew 18", available: false },
+            { id: 11, title: "Feast of Dedication", date: "Winter 29/30 CE", ref: "John 10:22-39", available: false },
+            { id: 12, title: "Journey to Jerusalem", date: "Winter/Spring 30 CE", ref: "Luke 9:51-18:34", available: false },
+            { id: 13, title: "Teaching at Jericho", date: "Spring 30 CE", ref: "Luke 18:35-19:27", available: false },
+            { id: 14, title: "Triumphal Entry", date: "March 29, 30 CE", ref: "Matthew 21", available: false },
+            { id: 15, title: "Temple Cleansing", date: "March 30, 30 CE", ref: "Matthew 21:12-17", available: false },
+            { id: 16, title: "Authority Challenged", date: "March 31, 30 CE", ref: "Matthew 21:23-22:46", available: false },
+            { id: 17, title: "Woes Against Pharisees", date: "March 31, 30 CE", ref: "Matthew 23", available: false },
+            { id: 18, title: "Olivet Discourse", date: "March 31, 30 CE", ref: "Matthew 24-25", available: false },
+            { id: 19, title: "Trial Before Pilate", date: "April 3, 30 CE", ref: "Matthew 27:11-26", available: false },
+            { id: 20, title: "Words from the Cross", date: "April 3, 30 CE", ref: "Matthew 27:33-50", available: false }
+        ];
+
+        let currentSpeechId = null;
+        let sidebarCollapsed = false;
+
+        function toggleSidebar() {
+            sidebarCollapsed = !sidebarCollapsed;
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+
+            if (sidebarCollapsed) {
+                sidebar.classList.add('collapsed');
+                mainContent.classList.add('expanded');
+            } else {
+                sidebar.classList.remove('collapsed');
+                mainContent.classList.remove('expanded');
+            }
+        }
+
+        function renderSpeechList() {
+            const list = document.getElementById('speechList');
+            let html = '';
+
+            speeches.forEach(speech => {
+                const activeClass = currentSpeechId === speech.id ? 'active' : '';
+                const disabledClass = !speech.available ? 'disabled' : '';
+                const onclick = speech.available ? `onclick="loadSpeech(${speech.id})"` : '';
+                const statusText = speech.available ? '' : '<span class="speech-status">(Coming soon)</span>';
+
+                html += `
+                    <div class="speech-item ${activeClass} ${disabledClass}" ${onclick}>
+                        <span class="speech-number">${speech.id}</span>
+                        <div style="display:inline-block;vertical-align:top;">
+                            <span class="speech-title">${speech.title}</span>
+                            <div class="speech-meta">${speech.date} • ${speech.ref}</div>
+                            ${statusText}
+                        </div>
+                    </div>
+                `;
+            });
+
+            list.innerHTML = html;
+        }
+
+        async function loadSpeech(id) {
+            try {
+                currentSpeechId = id;
+                renderSpeechList();
+
+                const filename = `json-output/${String(id).padStart(2, '0')}-${getFilename(id)}.json`;
+                const response = await fetch(filename);
+
+                if (!response.ok) {
+                    throw new Error(`Could not load speech #${id}`);
+                }
+
+                const data = await response.json();
+                renderSpeech(data);
+
+                // Scroll to top
+                document.getElementById('mainContent').scrollTo(0, 0);
+
+                // On mobile, collapse sidebar after selection
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            } catch (error) {
+                console.error('Error loading speech:', error);
+                document.getElementById('contentWrapper').innerHTML = `
+                    <div style="text-align:center;padding:3rem;">
+                        <h2 style="color:#8b0000;">Error Loading Speech</h2>
+                        <p style="color:#666;margin-top:1rem;">Could not load speech #${id}. Please try another.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function getFilename(id) {
+            const filenames = {
+                1: 'nazareth-synagogue-sermon',
+                2: 'capernaum-synagogue-teaching',
+                3: 'sermon-on-the-mount',
+                4: 'sermon-on-the-plain',
+                5: 'parables-by-the-sea',
+                6: 'bread-of-life-teaching'
+            };
+            return filenames[id] || 'unknown';
+        }
+
+        function renderSpeech(data) {
+            const content = document.getElementById('contentWrapper');
+            let html = '';
+
+            // Header
+            html += `
+                <header>
+                    <h1>${data.title}</h1>
+                    <p>${data.scripture_reference}</p>
+                </header>
+            `;
+
+            // Metadata
+            html += `
+                <div class="metadata">
+                    <h2>${data.title}</h2>
+                    <div class="metadata-grid">
+                        <div class="metadata-item"><strong>Date</strong><span>${data.date}</span></div>
+                        <div class="metadata-item"><strong>Location</strong><span>${data.location}</span></div>
+                        <div class="metadata-item"><strong>Scripture</strong><span>${data.scripture_reference}</span></div>
+                        <div class="metadata-item"><strong>Audience</strong><span>${data.audience}</span></div>
+                    </div>
+                </div>
+            `;
+
+            // Section by section
+            data.sections.forEach(section => {
+                html += '<div class="section-row">';
+
+                // Left: Text
+                html += '<div class="section-text">';
+                html += `<h2>${section.title}</h2>`;
+                html += `<div class="section-ref">${section.reference}</div>`;
+                if (Array.isArray(section.text)) {
+                    section.text.forEach(verse => {
+                        html += `<div class="verse"><p class="verse-text">${verse}</p></div>`;
+                    });
+                } else {
+                    html += `<div class="verse"><p class="verse-text">${section.text}</p></div>`;
+                }
+                html += '</div>';
+
+                // Right: Notes
+                html += '<div class="section-notes">';
+
+                // Translation notes
+                if (section.controversial_terms && section.controversial_terms.length > 0) {
+                    html += '<div class="note-group">';
+                    section.controversial_terms.forEach(term => {
+                        html += `
+                            <div class="translation-note">
+                                <h4>"${term.english}"</h4>
+                                <div class="greek-word">${term.greek}</div>
+                                <div class="translation-variants">
+                                    <p><strong>Common:</strong> ${term.common_mistranslation}</p>
+                                    <p><strong>Scholarly:</strong> ${term.scholarly_translation}</p>
+                                </div>
+                                <p style="margin-top:0.75rem;font-size:0.9rem;">${term.why_it_matters}</p>
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                }
+
+                // Interpretation
+                if (section.scholarly_interpretation) {
+                    html += '<div class="note-group">';
+                    html += `
+                        <div class="interpretation-note">
+                            <h4>Scholarly Interpretation</h4>
+                            <p>${section.scholarly_interpretation.summary}</p>
+                    `;
+
+                    if (section.scholarly_interpretation.key_points) {
+                        html += '<ul>';
+                        section.scholarly_interpretation.key_points.forEach(point => {
+                            html += `<li>${point}</li>`;
+                        });
+                        html += '</ul>';
+                    }
+
+                    html += '</div>';
+
+                    // Common misunderstandings
+                    if (section.scholarly_interpretation.common_misinterpretations) {
+                        section.scholarly_interpretation.common_misinterpretations.forEach(mis => {
+                            html += `
+                                <div class="interpretation-note">
+                                    <h4>Common Misunderstanding</h4>
+                                    <p style="font-style:italic;color:#666;margin-bottom:0.5rem;">${mis.error}</p>
+                                    <p>${mis.correction}</p>
+                                    ${mis.scholars ? `<p style="margin-top:0.5rem;font-size:0.85rem;color:#666;">${mis.scholars}</p>` : ''}
+                                </div>
+                            `;
+                        });
+                    }
+
+                    html += '</div>';
+                }
+
+                html += '</div>'; // end section-notes
+                html += '</div>'; // end section-row
+            });
+
+            // External sources
+            if (data.extra_biblical_context) {
+                html += '<div class="section-row">';
+                html += '<div class="section-text"><h2>Historical Context</h2></div>';
+                html += '<div class="section-notes"><div class="note-group">';
+
+                ['dead_sea_scrolls', 'rabbinic_parallels', 'old_testament'].forEach(key => {
+                    if (data.extra_biblical_context[key]) {
+                        data.extra_biblical_context[key].forEach(item => {
+                            html += `
+                                <div class="external-source">
+                                    <h4>${item.source || item.reference}</h4>
+                                    ${item.text ? `<p style="font-style:italic;">"${item.text}"</p>` : ''}
+                                    <p><strong>Parallel:</strong> ${item.parallel}</p>
+                                    <p><strong>Significance:</strong> ${item.significance}</p>
+                                </div>
+                            `;
+                        });
+                    }
+                });
+
+                html += '</div></div></div>';
+            }
+
+            // Conclusion
+            html += `
+                <div class="conclusion-section">
+                    <h2>Conclusion</h2>
+                    <p>${data.conclusion_summary}</p>
+                </div>
+            `;
+
+            content.innerHTML = html;
+        }
+
+        // Initialize
+        renderSpeechList();
+        loadSpeech(1); // Load first speech by default
+    </script>
+</body>
+</html>
