@@ -1,0 +1,211 @@
+{
+  "speech_id": 7,
+  "title": "Feast of Tabernacles Teaching",
+  "date": "Fall 29 CE (Year 2 of ministry)",
+  "location": "Jerusalem Temple courts during Feast of Tabernacles",
+  "scripture_reference": "John 7:14-8:59",
+  "audience": "Festival crowds, Jewish religious leaders",
+  "duration_estimate": "Multiple teaching sessions over 7-day festival",
+  "translation": "World English Bible (WEB - Public Domain)",
+  "scholarly_note": "This extended discourse occurs during the Feast of Tabernacles, a major Jewish pilgrimage festival celebrating the wilderness wandering and harvest. The feast included ceremonial water libation and lamp-lighting ceremonies, providing symbolic context for Jesus's 'living water' and 'light of the world' claims. The discourse represents escalating theological conflict between Jesus and religious authorities.",
+
+  "extra_biblical_context": {
+    "old_testament": [
+      {
+        "reference": "Exodus 3:14",
+        "text": "God said to Moses, 'I AM WHO I AM'",
+        "parallel": "John 8:58 'Before Abraham was, I AM'",
+        "significance": "Jesus claims the divine name YHWH, which Jewish listeners understood as deity claim"
+      },
+      {
+        "reference": "Isaiah 12:3",
+        "text": "With joy you will draw water from the wells of salvation",
+        "parallel": "John 7:37-38 living water proclamation",
+        "significance": "Read during Feast of Tabernacles, connected to water ceremony"
+      }
+    ],
+    "rabbinic_parallels": [
+      {
+        "source": "Mishnah Sukkah 4-5",
+        "parallel": "Describes water libation and lamp ceremonies during Feast of Tabernacles",
+        "significance": "Jesus's 'living water' and 'light' claims occur during these specific ritual contexts"
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "section_id": "teaching_authority",
+      "reference": "John 7:14-36",
+      "title": "Jesus Teaches with Authority",
+      "text": [
+        "About the middle of the feast, Jesus went up into the temple and taught. The Jews therefore marveled, saying, 'How does this man know letters, having never been educated?'",
+        "Jesus therefore answered them, 'My teaching is not mine, but his who sent me. If anyone desires to do his will, he will know about the teaching, whether it is from God, or if I am speaking from myself.'"
+      ],
+      "controversial_terms": [
+        {
+          "english": "teaching",
+          "greek": "διδαχή (didachē)",
+          "common_mistranslation": "Personal opinion or philosophy",
+          "scholarly_translation": "Authoritative teaching / doctrine from God",
+          "explanation": "Jesus claims his teaching comes directly from God, not from rabbinic training. This bypasses the normal chain of authority in first-century Judaism.",
+          "why_it_matters": "Jewish teachers cited previous rabbis. Jesus speaks with direct divine authority, which was seen as blasphemous unless true."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "Jesus teaches during the major pilgrimage feast with unprecedented authority, claiming divine origin for his teaching despite lacking formal rabbinic credentials.",
+        "key_points": [
+          "The question 'how does he know letters?' reflects surprise at his teaching without formal rabbinic training",
+          "Jesus claims divine authority for his teaching, not human tradition",
+          "This establishes the pattern of escalating conflict throughout the feast"
+        ],
+        "common_misinterpretations": []
+      }
+    },
+    {
+      "section_id": "living_water",
+      "reference": "John 7:37-52",
+      "title": "Rivers of Living Water (The Spirit)",
+      "text": [
+        "Now on the last and greatest day of the feast, Jesus stood and cried out, 'If anyone is thirsty, let him come to me and drink! He who believes in me, as the Scripture has said, from within him will flow rivers of living water.'",
+        "But he said this about the Spirit, which those believing in him were to receive. For the Holy Spirit was not yet given, because Jesus wasn't yet glorified."
+      ],
+      "controversial_terms": [
+        {
+          "english": "rivers of living water",
+          "greek": "ποταμοὶ ὕδατος ζῶντος (potamoi hydatos zōntos)",
+          "common_mistranslation": "Personal spiritual fulfillment only",
+          "scholarly_translation": "The Holy Spirit flowing from believers to others",
+          "explanation": "The water libation ceremony during Tabernacles recalled wilderness provision and anticipated messianic age. Jesus claims to fulfill this, promising the Spirit will flow from believers like rivers.",
+          "why_it_matters": "This is not just internal blessing but overflow to others. The Spirit empowers witness and ministry, not just personal experience."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "On the climactic day of the feast's water ceremony, Jesus offers himself as the source of living water (the Holy Spirit), positioning himself as the fulfillment of the feast's symbolism.",
+        "key_points": [
+          "The timing during water libation ceremony makes this highly symbolic and provocative",
+          "John's editorial comment clarifies this refers to the post-Pentecost Spirit",
+          "This divides the crowd between belief and skepticism about messianic identity"
+        ],
+        "common_misinterpretations": []
+      }
+    },
+    {
+      "section_id": "light_world",
+      "reference": "John 8:12-30",
+      "title": "Light of the World",
+      "text": [
+        "Again, therefore, Jesus spoke to them, saying, 'I am the light of the world. He who follows me will not walk in the darkness, but will have the light of life.'",
+        "The Pharisees therefore said to him, 'You testify about yourself. Your testimony is not valid.'",
+        "Jesus answered them, 'Even if I testify about myself, my testimony is true, for I know where I came from, and where I am going; but you don't know where I came from, or where I am going.'"
+      ],
+      "controversial_terms": [
+        {
+          "english": "I am the light of the world",
+          "greek": "ἐγώ εἰμι τὸ φῶς τοῦ κόσμου (egō eimi to phōs tou kosmou)",
+          "common_mistranslation": "I am a moral teacher or enlightened guide",
+          "scholarly_translation": "I AM (divine name) the world's light (messianic claim)",
+          "explanation": "Spoken during the Temple lamp-lighting ceremony. 'I AM' echoes Exodus 3:14. The light claim fulfills Isaiah's prophecy of messiah as light to nations.",
+          "why_it_matters": "This is a deity claim, not moral teaching. Jesus positions himself as the fulfillment of Israel's calling to be light to the world."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "During the Temple illumination ceremony, Jesus declares himself the Light of the World, making both a messianic and divine claim that provokes theological debate about testimony and authority.",
+        "key_points": [
+          "The lamp ceremony made the Temple court blazingly bright - Jesus speaks into this visual context",
+          "The debate about valid testimony reflects Jewish legal requirements for witnesses",
+          "Jesus claims self-authentication based on his divine origin and destination"
+        ],
+        "common_misinterpretations": []
+      }
+    },
+    {
+      "section_id": "truth_freedom",
+      "reference": "John 8:31-47",
+      "title": "Truth and Freedom",
+      "text": [
+        "Jesus therefore said to those Jews who had believed him, 'If you remain in my word, then you are truly my disciples. You will know the truth, and the truth will make you free.'",
+        "They answered him, 'We are Abraham's offspring, and have never been in bondage to anyone. How do you say, \"You will be made free\"?'",
+        "Jesus answered them, 'Most certainly I tell you, everyone who commits sin is the bondservant of sin.'"
+      ],
+      "controversial_terms": [
+        {
+          "english": "the truth will make you free",
+          "greek": "ἡ ἀλήθεια ἐλευθερώσει ὑμᾶς (hē alētheia eleutherōsei hymas)",
+          "common_mistranslation": "Knowledge of facts brings freedom",
+          "scholarly_translation": "The truth about Jesus brings freedom from sin's bondage",
+          "explanation": "'Truth' in John's Gospel is not abstract philosophy but the reality revealed in Jesus. Freedom is not political but spiritual liberation from sin's mastery.",
+          "why_it_matters": "This is often quoted out of context for secular education. In John, 'truth' is Jesus himself (14:6), and freedom is from sin, not ignorance."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "Jesus teaches that true discipleship involves remaining in his word, which brings knowledge of truth that frees from sin's bondage. This provokes debate about Abraham's children and spiritual freedom versus slavery.",
+        "key_points": [
+          "The dialogue partner shifts from hostile authorities to 'Jews who believed' - but their faith proves superficial",
+          "The debate about Abraham's children becomes heated as Jesus challenges their spiritual pedigree",
+          "Freedom is redefined as liberation from sin, not political autonomy"
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "'Truth will make you free' means education or knowledge liberates",
+            "correction": "In context, 'truth' is Jesus himself and his revelation. Freedom is from sin's bondage, requiring ongoing discipleship ('remain in my word'). This isn't intellectual enlightenment but spiritual liberation.",
+            "scholars": "Most Johannine scholars emphasize 'truth' as christological category in John, not abstract knowledge"
+          }
+        ]
+      }
+    },
+    {
+      "section_id": "before_abraham",
+      "reference": "John 8:48-59",
+      "title": "Before Abraham Was, I AM",
+      "text": [
+        "The Jews answered him, 'Don't we say well that you are a Samaritan, and have a demon?'",
+        "Jesus answered, 'I don't have a demon, but I honor my Father, and you dishonor me. But I don't seek my own glory. There is one who seeks and judges.'",
+        "Your father Abraham rejoiced to see my day. He saw it, and was glad.'",
+        "The Jews therefore said to him, 'You are not yet fifty years old, and have you seen Abraham?'",
+        "Jesus said to them, 'Most certainly, I tell you, before Abraham came into existence, I AM.'",
+        "Therefore they took up stones to throw at him, but Jesus was hidden, and went out of the temple, having gone through the middle of them, and so passed by."
+      ],
+      "controversial_terms": [
+        {
+          "english": "Before Abraham was, I AM",
+          "greek": "πρὶν Ἀβραὰμ γενέσθαι ἐγὼ εἰμί (prin Abraam genesthai egō eimi)",
+          "common_mistranslation": "Before Abraham was born, I existed",
+          "scholarly_translation": "Before Abraham came to be, I AM (divine name)",
+          "explanation": "The Greek uses past tense for Abraham ('came to be') but present tense 'I AM' for Jesus, echoing God's self-revelation to Moses (Exodus 3:14). This claims eternal pre-existence and deity.",
+          "why_it_matters": "The attempted stoning shows Jewish listeners understood this as a deity claim requiring death penalty for blasphemy. Jesus claims the divine name YHWH."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "The discourse climaxes with Jesus's claim to pre-exist Abraham using the divine name 'I AM' from Exodus 3:14. The attempted stoning demonstrates that his hearers understood this as a deity claim.",
+        "key_points": [
+          "The charge of having a demon reflects their explanation for his extraordinary claims - either deity or demonic deception",
+          "Jesus claims Abraham foresaw his day, implying messianic fulfillment of God's promise to Abraham",
+          "The 'I AM' statement with its present tense for Jesus vs. past tense for Abraham emphasizes eternal existence",
+          "The stoning attempt proves they understood his deity claim - blasphemy carried death penalty",
+          "Jesus's mysterious escape ('hidden...went out') may imply supernatural departure"
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "This just means Jesus existed as an idea in God's plan before Abraham",
+            "correction": "The immediate attempt to stone him for blasphemy shows his Jewish audience understood this as a personal deity claim, not just preexistence in God's mind. The use of 'I AM' (egō eimi) echoes Exodus 3:14 where God reveals his name to Moses.",
+            "scholars": "Evangelical and critical scholars alike recognize this as high Christology - Jesus claims the divine name. Debate centers on whether this reflects Jesus's self-understanding or later Johannine theology."
+          }
+        ]
+      }
+    }
+  ],
+
+  "overall_scholarly_interpretation": {
+    "summary": "The Feast of Tabernacles discourse represents the most explicit and sustained claims to deity in Jesus's public ministry. Using the feast's water and light symbolism, Jesus positions himself as the fulfillment of Israel's hopes and makes repeated 'I AM' statements that culminate in claiming pre-existence and the divine name, provoking an attempted execution for blasphemy.",
+    "major_themes": [
+      "Progressive revelation of Jesus's identity: from teacher, to messiah, to divine I AM",
+      "Feast symbolism fulfilled: Jesus is the living water (Spirit) and light of the world",
+      "Escalating conflict: theological debate becomes violent attempted stoning",
+      "Deity claims: Multiple 'I AM' statements culminating in 'Before Abraham was, I AM'",
+      "Division: The crowds and leaders are split over Jesus's identity"
+    ]
+  },
+
+  "conclusion_summary": "The Feast of Tabernacles Teaching represents the pinnacle of Jesus's public self-revelation. Against the backdrop of the feast's water and light ceremonies, Jesus claims to be the source of living water (the Spirit) and the light of the world, using language that increasingly points to deity. The discourse climaxes with the explicit claim 'Before Abraham was, I AM,' appropriating God's self-revelation to Moses. The attempted stoning demonstrates that his hearers understood these as deity claims, not merely messianic. This marks a turning point: public ministry in Jerusalem becomes impossible, and Jesus withdraws until his appointed hour."
+}
