@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Letters: Jesus's Public Speeches</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f0;
+        }
+
+        header {
+            background: #8b0000;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 4px solid #660000;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .metadata {
+            background: white;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 1400px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .metadata h2 {
+            color: #8b0000;
+            margin-bottom: 1rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .metadata-item {
+            padding: 0.5rem;
+        }
+
+        .metadata-item strong {
+            color: #555;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-text {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .main-text h2 {
+            color: #8b0000;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        .main-text h2:first-child {
+            margin-top: 0;
+        }
+
+        .verse {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #ddd;
+        }
+
+        .verse-text {
+            color: #8b0000;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .verse-ref {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .annotations {
+            background: #fffaf0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 1rem;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .annotations h3 {
+            color: #8b0000;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .annotation-card {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid #8b0000;
+        }
+
+        .annotation-card h4 {
+            color: #8b0000;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .greek-word {
+            background: #f0f0f0;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            color: #333;
+            display: inline-block;
+            margin: 0.25rem 0;
+        }
+
+        .mistranslation {
+            background: #ffe4e4;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .correct-translation {
+            background: #e4ffe4;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .discussion {
+            background: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1400px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .discussion h2 {
+            color: #8b0000;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        .discussion h3 {
+            color: #555;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .discussion ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .discussion li {
+            margin-bottom: 0.5rem;
+        }
+
+        .misinterpretation {
+            background: #fff5f5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .misinterpretation h4 {
+            color: #c92a2a;
+            margin-bottom: 0.5rem;
+        }
+
+        .correction {
+            background: #f0fff0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border-left: 4px solid #51cf66;
+        }
+
+        .correction h4 {
+            color: #2b8a3e;
+            margin-bottom: 0.5rem;
+        }
+
+        .extra-biblical {
+            background: #f0f8ff;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border-left: 4px solid #4dabf7;
+        }
+
+        .extra-biblical h4 {
+            color: #1971c2;
+            margin-bottom: 0.5rem;
+        }
+
+        .error-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2rem;
+            border-radius: 8px;
+        }
+
+        .error-box h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .error-box p {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+
+        .error-box code {
+            background: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .annotations {
+                position: static;
+                max-height: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Red Letters</h1>
+        <p>The Words of Jesus from Historical Sources</p>
+    </header>
+
+    <div id="content">
+        <div class="error-box">
+            <h3>Loading speech data...</h3>
+            <p>If this message persists, check the browser console (F12) for errors.</p>
+        </div>
+    </div>
+
+    <script>
+        // Embedded data approach - no fetch needed
+        const speechData = {
+  "speech_id": 1,
+  "title": "Sermon on the Mount",
+  "date": "Spring 28 CE (Year 1 of ministry)",
+  "location": "Mountain near Capernaum, Galilee",
+  "scripture_reference": "Matthew 5:1-7:29",
+  "audience": "Large crowds from Galilee, Decapolis, Jerusalem, Judea, and beyond the Jordan",
+  "duration_estimate": "20-30 minutes reading time",
+  "translation": "World English Bible (WEB - Public Domain)",
+  "scholarly_note": "This is the longest continuous discourse in Matthew's gospel. Scholars debate whether this represents a single sermon or a compilation of Jesus's teachings. Most accept it as a thematic collection delivered on one occasion with editorial arrangement by Matthew.",
+  "sections": [
+    {
+      "section_id": "beatitudes",
+      "reference": "Matthew 5:3-12",
+      "title": "The Beatitudes",
+      "text": [
+        "Blessed are the poor in spirit, for theirs is the Kingdom of Heaven.",
+        "Blessed are those who mourn, for they shall be comforted.",
+        "Blessed are the gentle, for they shall inherit the earth.",
+        "Blessed are those who hunger and thirst after righteousness, for they shall be filled."
+      ],
+      "controversial_terms": [
+        {
+          "english": "Blessed",
+          "greek": "μακάριοι (makarioi)",
+          "common_mistranslation": "Happy",
+          "scholarly_translation": "Blessed / In a state of flourishing",
+          "explanation": "The Greek 'makarios' describes a permanent state of divine favor and spiritual well-being, not temporary emotional happiness.",
+          "why_it_matters": "Translating as 'happy' reduces a deep theological concept to fleeting emotion."
+        },
+        {
+          "english": "poor in spirit",
+          "greek": "πτωχοὶ τῷ πνεύματι (ptōchoi tō pneumati)",
+          "common_mistranslation": "Materially poor",
+          "scholarly_translation": "Spiritually humble / Those who recognize their spiritual poverty",
+          "explanation": "While 'ptōchoi' can mean materially poor, the phrase 'tō pneumati' (in spirit) explicitly qualifies this as spiritual poverty—recognizing one's need for God.",
+          "why_it_matters": "This isn't about economic status but spiritual posture."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "The Beatitudes are not entrance requirements to the kingdom but descriptions of kingdom citizens.",
+        "key_points": [
+          "These are indicative (descriptions) not imperative (commands)",
+          "The structure follows prophetic reversal",
+          "Scholarly consensus: Matthew frames Jesus as the New Moses"
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "Beatitudes as steps to salvation",
+            "correction": "These describe the character of those who have received grace, not prerequisites to earn it.",
+            "scholars": "Dale Allison, Scot McKnight, N.T. Wright"
+          }
+        ]
+      }
+    }
+  ],
+  "conclusion_summary": "The Sermon on the Mount is Jesus's manifesto for kingdom living."
+};
+
+        function renderSpeech(data) {
+            const content = document.getElementById('content');
+            let html = '';
+
+            // Metadata
+            html += `
+                <div class="metadata">
+                    <h2>${data.title}</h2>
+                    <div class="metadata-grid">
+                        <div class="metadata-item"><strong>Date:</strong> ${data.date}</div>
+                        <div class="metadata-item"><strong>Location:</strong> ${data.location}</div>
+                        <div class="metadata-item"><strong>Scripture:</strong> ${data.scripture_reference}</div>
+                        <div class="metadata-item"><strong>Translation:</strong> ${data.translation}</div>
+                    </div>
+                    ${data.scholarly_note ? `<p style="margin-top:1rem;font-style:italic;color:#666;">${data.scholarly_note}</p>` : ''}
+                </div>
+            `;
+
+            // Two columns
+            html += '<div class="container"><div class="main-text">';
+
+            data.sections.forEach(section => {
+                html += `<h2>${section.title}</h2>`;
+                html += `<div class="verse-ref">${section.reference}</div>`;
+                section.text.forEach(verse => {
+                    html += `<div class="verse"><p class="verse-text">${verse}</p></div>`;
+                });
+            });
+
+            html += '</div><div class="annotations"><h3>Translation Notes</h3>';
+
+            data.sections.forEach(section => {
+                if (section.controversial_terms) {
+                    section.controversial_terms.forEach(term => {
+                        html += `
+                            <div class="annotation-card">
+                                <h4>"${term.english}"</h4>
+                                <div class="greek-word">${term.greek}</div>
+                                <div class="mistranslation"><strong>❌ Common:</strong> ${term.common_mistranslation}</div>
+                                <div class="correct-translation"><strong>✓ Scholarly:</strong> ${term.scholarly_translation}</div>
+                                <p style="margin-top:0.5rem;"><strong>Why it matters:</strong> ${term.why_it_matters}</p>
+                            </div>
+                        `;
+                    });
+                }
+            });
+
+            html += '</div></div>';
+
+            // Discussion
+            html += '<div class="discussion"><h2>Scholarly Interpretation</h2>';
+
+            data.sections.forEach(section => {
+                if (section.scholarly_interpretation) {
+                    html += `<h3>${section.title}</h3>`;
+                    html += `<p>${section.scholarly_interpretation.summary}</p>`;
+
+                    if (section.scholarly_interpretation.common_misinterpretations) {
+                        section.scholarly_interpretation.common_misinterpretations.forEach(mis => {
+                            html += `
+                                <div class="misinterpretation"><h4>❌ ${mis.error}</h4></div>
+                                <div class="correction"><h4>✓ ${mis.correction}</h4>
+                                <p><em>${mis.scholars}</em></p></div>
+                            `;
+                        });
+                    }
+                }
+            });
+
+            html += `<h3>Conclusion</h3><p>${data.conclusion_summary}</p></div>`;
+
+            content.innerHTML = html;
+        }
+
+        // Render immediately with embedded data
+        renderSpeech(speechData);
+    </script>
+</body>
+</html>

@@ -1,0 +1,550 @@
+const SPEECH_DATA = 
+{
+  "speech_id": 1,
+  "title": "Sermon on the Mount",
+  "date": "Spring 28 CE (Year 1 of ministry)",
+  "location": "Mountain near Capernaum, Galilee",
+  "scripture_reference": "Matthew 5:1-7:29",
+  "audience": "Large crowds from Galilee, Decapolis, Jerusalem, Judea, and beyond the Jordan",
+  "duration_estimate": "20-30 minutes reading time",
+  "translation": "World English Bible (WEB - Public Domain)",
+  "scholarly_note": "This is the longest continuous discourse in Matthew's gospel. Scholars debate whether this represents a single sermon or a compilation of Jesus's teachings. Most accept it as a thematic collection delivered on one occasion with editorial arrangement by Matthew.",
+
+  "extra_biblical_context": {
+    "dead_sea_scrolls": [
+      {
+        "source": "Community Rule (1QS)",
+        "parallel": "Beatitudes structure parallels Qumran community blessings for the spiritually humble",
+        "significance": "Shows Jesus's teachings within Second Temple Jewish ethical tradition"
+      },
+      {
+        "source": "Damascus Document (CD)",
+        "parallel": "Strict Torah interpretations parallel Jesus's 'antitheses' (You have heard...but I say)",
+        "significance": "Jesus intensifies rather than abolishes Jewish law"
+      }
+    ],
+    "rabbinic_parallels": [
+      {
+        "source": "Hillel (Talmud Shabbat 31a)",
+        "text": "What is hateful to you, do not do to your neighbor",
+        "parallel": "Matthew 7:12 Golden Rule",
+        "significance": "Jesus frames positively (do) vs. Hillel's negative (don't do)"
+      },
+      {
+        "source": "Mishnah Pirkei Avot",
+        "parallel": "Rabbinic ethics on anger control, judgment, proper conduct",
+        "significance": "Jesus radicalizes common Jewish ethical teachings"
+      },
+      {
+        "source": "Kaddish and Amidah prayers",
+        "parallel": "Lord's Prayer structure echoes Jewish liturgical patterns",
+        "significance": "Jesus works within Jewish prayer tradition while simplifying and personalizing"
+      }
+    ],
+    "old_testament": [
+      {
+        "reference": "Psalm 37:11",
+        "text": "The meek shall inherit the earth",
+        "parallel": "Matthew 5:5",
+        "significance": "Direct quotation establishing continuity with Hebrew scriptures"
+      },
+      {
+        "reference": "Isaiah 61:1-2",
+        "text": "Good news to the poor...comfort to those who mourn",
+        "parallel": "Beatitudes structure",
+        "significance": "Jesus presents himself as fulfillment of Isaiah's messianic prophecy"
+      },
+      {
+        "reference": "Exodus 20 (Ten Commandments)",
+        "parallel": "Antitheses structure echoes Sinai revelation",
+        "significance": "Jesus as 'New Moses' giving renewed covenant from mountain"
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "section_id": "beatitudes",
+      "reference": "Matthew 5:3-12",
+      "title": "The Beatitudes",
+      "text": [
+        "Blessed are the poor in spirit, for theirs is the Kingdom of Heaven.",
+        "Blessed are those who mourn, for they shall be comforted.",
+        "Blessed are the gentle, for they shall inherit the earth.",
+        "Blessed are those who hunger and thirst after righteousness, for they shall be filled.",
+        "Blessed are the merciful, for they shall obtain mercy.",
+        "Blessed are the pure in heart, for they shall see God.",
+        "Blessed are the peacemakers, for they shall be called children of God.",
+        "Blessed are those who have been persecuted for righteousness' sake, for theirs is the Kingdom of Heaven.",
+        "Blessed are you when people reproach you, persecute you, and say all kinds of evil against you falsely, for my sake. Rejoice, and be exceedingly glad, for great is your reward in heaven. For that is how they persecuted the prophets who were before you."
+      ],
+      "controversial_terms": [
+        {
+          "english": "Blessed",
+          "greek": "μακάριοι (makarioi)",
+          "common_mistranslation": "Happy",
+          "scholarly_translation": "Blessed / In a state of flourishing",
+          "explanation": "The Greek 'makarios' describes a permanent state of divine favor and spiritual well-being, not temporary emotional happiness. It denotes supreme blessedness—the condition of those who receive God's approval. The term appears 50 times in the New Testament and consistently refers to spiritual blessing.",
+          "why_it_matters": "Translating as 'happy' reduces a deep theological concept to fleeting emotion. The Beatitudes describe the character of those in God's kingdom, not steps to achieve happiness."
+        },
+        {
+          "english": "poor in spirit",
+          "greek": "πτωχοὶ τῷ πνεύματι (ptōchoi tō pneumati)",
+          "common_mistranslation": "Materially poor",
+          "scholarly_translation": "Spiritually humble / Those who recognize their spiritual poverty",
+          "explanation": "While 'ptōchoi' can mean materially poor (as in Luke 6:20), the phrase 'tō pneumati' (in spirit) explicitly qualifies this as spiritual poverty—recognizing one's need for God. The word 'ptōchoi' literally describes one who crouches and cowers, suggesting complete dependence.",
+          "why_it_matters": "This isn't about economic status but spiritual posture. Jesus blesses those who know they are spiritually bankrupt and dependent on God, not those who are merely economically disadvantaged."
+        },
+        {
+          "english": "gentle / meek",
+          "greek": "πραεῖς (praeis)",
+          "common_mistranslation": "Weak / Spineless",
+          "scholarly_translation": "Meek / Gentle strength / Power under control",
+          "explanation": "The Greek 'praeis' does not mean weakness but strength tempered with gentleness—like a war horse trained to respond to the rider's slightest command. It combines humility with controlled power. Aristotle defined it as the middle ground between excessive anger and excessive passivity.",
+          "why_it_matters": "Modern 'meek' sounds weak, but Jesus describes those who have strength but exercise it with restraint and humility. This is Moses's character (Numbers 12:3) and Jesus's own self-description (Matthew 11:29)."
+        },
+        {
+          "english": "righteousness",
+          "greek": "δικαιοσύνη (dikaiosynē)",
+          "common_mistranslation": "Personal morality only",
+          "scholarly_translation": "Righteousness / Justice / Right standing with God and right living",
+          "explanation": "The Hebrew concept (tsedaqah) and Greek 'dikaiosynē' encompass both vertical righteousness (right relationship with God) and horizontal righteousness (justice in relationships, ethical living). It includes justification (legal standing) and sanctification (actual holiness).",
+          "why_it_matters": "Reducing this to personal piety misses the social justice dimension. Those who hunger for righteousness long for God's will to be done—both in personal transformation and in societal justice."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "The Beatitudes are not entrance requirements to the kingdom but descriptions of kingdom citizens. They reverse worldly values, declaring blessed those whom society marginalizes.",
+        "key_points": [
+          "These are indicative (descriptions) not imperative (commands). Jesus describes those who already participate in God's kingdom, not how to earn entry.",
+          "The structure follows prophetic reversal: those who suffer now will be vindicated. This echoes Isaiah 61 and Jewish apocalyptic expectations.",
+          "The Beatitudes operate on two levels: present blessing ('theirs IS the kingdom') and future consummation ('they SHALL be comforted'). Kingdom is 'already but not yet.'",
+          "Scholarly consensus: Matthew frames Jesus as the New Moses giving the renewed covenant from a mountain, deliberately echoing the Sinai revelation."
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "Beatitudes as steps to salvation or requirements to enter heaven",
+            "correction": "These describe the character of those who have received grace, not prerequisites to earn it. They are effects of kingdom participation, not causes.",
+            "scholars": "Dale Allison, Scot McKnight, N.T. Wright consistently emphasize this is description not prescription"
+          },
+          {
+            "error": "Poverty and suffering are themselves blessed",
+            "correction": "Not poverty itself but poverty 'in spirit'—spiritual humility. Jesus blesses the posture of dependence on God, not economic hardship per se. Luke's version (6:20) may emphasize literal poverty more, but Matthew's 'in spirit' clarifies the spiritual dimension.",
+            "scholars": "Craig Keener notes the difference between Matthew's and Luke's emphasis"
+          },
+          {
+            "error": "These are individual virtues disconnected from community",
+            "correction": "The Beatitudes address a community ('you' plural in v.11). They describe the character of God's new covenant people collectively, not just individual piety.",
+            "scholars": "W.D. Davies emphasizes communal dimension in 'Setting of the Sermon on the Mount'"
+          }
+        ]
+      }
+    },
+    {
+      "section_id": "salt_light",
+      "reference": "Matthew 5:13-16",
+      "title": "Salt and Light",
+      "text": [
+        "You are the salt of the earth, but if the salt has lost its flavor, with what will it be salted? It is then good for nothing, but to be cast out and trodden under the feet of men.",
+        "You are the light of the world. A city located on a hill can't be hidden.",
+        "Neither do you light a lamp and put it under a measuring basket, but on a stand; and it shines to all who are in the house.",
+        "Even so, let your light shine before men, that they may see your good works and glorify your Father who is in heaven."
+      ],
+      "controversial_terms": [],
+      "scholarly_interpretation": {
+        "summary": "Disciples are to preserve and illuminate the world through visible, authentic living that points to God.",
+        "key_points": [
+          "Salt in ancient world: preservation, flavor, covenant symbol (Leviticus 2:13), and purification. Disciples preserve moral decay in society.",
+          "Light echoes Isaiah 42:6, 49:6—Israel called to be light to nations. Jesus transfers this role to his followers.",
+          "Good works are visible evidence pointing to God, not self-promotion. The purpose is that people 'glorify your Father,' not the disciples themselves."
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "Salt losing its flavor means Christians losing salvation",
+            "correction": "Pure sodium chloride cannot lose saltiness chemically. Jesus likely refers to contaminated salt (mixed with gypsum or other minerals) common in his day, which became useless. The point: be authentic, not contaminated with worldliness.",
+            "scholars": "R.T. France notes salt in Palestine was impure and could deteriorate"
+          }
+        ]
+      }
+    },
+    {
+      "section_id": "law_fulfillment",
+      "reference": "Matthew 5:17-20",
+      "title": "Jesus and the Law",
+      "text": [
+        "Don't think that I came to destroy the law or the prophets. I didn't come to destroy, but to fulfill.",
+        "For most certainly, I tell you, until heaven and earth pass away, not even one smallest letter or one tiny pen stroke shall in any way pass away from the law, until all things are accomplished.",
+        "Therefore, whoever shall break one of these least commandments and teach others to do so, shall be called least in the Kingdom of Heaven; but whoever shall do and teach them shall be called great in the Kingdom of Heaven.",
+        "For I tell you that unless your righteousness exceeds that of the scribes and Pharisees, there is no way you will enter into the Kingdom of Heaven."
+      ],
+      "controversial_terms": [
+        {
+          "english": "fulfill",
+          "greek": "πληρῶσαι (plērōsai)",
+          "common_mistranslation": "Abolish or replace",
+          "scholarly_translation": "Fulfill / Complete / Bring to full expression",
+          "explanation": "'Plēroō' means to fill up, complete, or bring to intended goal. Jesus claims to bring the law to its full meaning and purpose, not to abolish it. He intensifies and radicalizes the law's intent.",
+          "why_it_matters": "This is not law vs. grace but law fulfilled in grace. Jesus doesn't throw out Torah but reveals its deepest meaning and fulfills its typological prophecies."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "Jesus upholds the Law's authority while claiming authority to interpret its deepest meaning. He fulfills the Law by embodying its purpose and radicalizing its ethical demands.",
+        "key_points": [
+          "Jesus affirms Torah's permanent validity ('not one jot or tittle') while simultaneously intensifying its demands beyond scribal interpretation.",
+          "The paradox: Jesus keeps the Law while transgressing Pharisaic traditions (Sabbath healings, purity laws). He distinguishes between God's law and human traditions.",
+          "'Exceeds scribes and Pharisees': not more rules but deeper righteousness—internal transformation, not just external compliance.",
+          "Fulfillment is Christological: Jesus embodies the Law, fulfills its prophecies, and enables obedience through the Spirit."
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "Jesus abolishes Old Testament law; Christians are free from Torah",
+            "correction": "Jesus explicitly says he did NOT come to abolish. He fulfills the Law's purpose and deepens its moral demands. The issue is not law vs. grace but legalism vs. Spirit-empowered obedience.",
+            "scholars": "Scot McKnight's 'Sermon on the Mount' emphasizes Jesus intensifies rather than abolishes Torah"
+          },
+          {
+            "error": "Christians must keep all 613 Torah commands literally",
+            "correction": "Jesus fulfills ceremonial and typological aspects while intensifying moral demands. The New Covenant internalizes the law (Jeremiah 31:33). Fulfillment means Christ completes what the law pointed toward.",
+            "scholars": "The Jerusalem Council (Acts 15) shows early church wrestling with this; consensus was Gentiles don't need ceremonial law but keep moral law"
+          }
+        ]
+      }
+    },
+    {
+      "section_id": "antitheses",
+      "reference": "Matthew 5:21-48",
+      "title": "The Six Antitheses: You Have Heard...But I Say",
+      "text": [
+        "[Anger] You have heard that it was said to the ancient ones, 'You shall not murder;' and 'Whoever murders will be in danger of the judgment.' But I tell you that everyone who is angry with his brother without a cause will be in danger of the judgment. Whoever says to his brother, 'Raca!' will be in danger of the council. Whoever says, 'You fool!' will be in danger of the fire of Gehenna.",
+        "[Adultery] You have heard that it was said, 'You shall not commit adultery;' but I tell you that everyone who gazes at a woman to lust after her has committed adultery with her already in his heart.",
+        "[Divorce] It was also said, 'Whoever shall put away his wife, let him give her a writing of divorce,' but I tell you that whoever puts away his wife, except for the cause of sexual immorality, makes her an adulteress; and whoever marries her when she is put away commits adultery.",
+        "[Oaths] Again you have heard that it was said to the ancient ones, 'You shall not make false vows, but shall perform to the Lord your vows,' but I tell you, don't swear at all... But let your 'Yes' be 'Yes' and your 'No' be 'No.' Whatever is more than these is of the evil one.",
+        "[Retaliation] You have heard that it was said, 'An eye for an eye, and a tooth for a tooth.' But I tell you, don't resist him who is evil; but whoever strikes you on your right cheek, turn to him the other also.",
+        "[Love Enemies] You have heard that it was said, 'You shall love your neighbor and hate your enemy.' But I tell you, love your enemies, bless those who curse you, do good to those who hate you, and pray for those who mistreat you and persecute you, that you may be children of your Father who is in heaven."
+      ],
+      "controversial_terms": [
+        {
+          "english": "don't resist him who is evil",
+          "greek": "μὴ ἀντιστῆναι τῷ πονηρῷ (mē antistēnai tō ponērō)",
+          "common_mistranslation": "Do not resist evil (abstract concept) / Never resist Satan",
+          "scholarly_translation": "Do not resist the evil person / the evildoer",
+          "explanation": "The Greek 'ponērō' is masculine (evil person), not neuter (evil in abstract). This is about personal retaliation against those who wrong you, not about resisting evil in general or refusing to oppose injustice. The context (turn other cheek, give cloak, go extra mile) confirms this is about personal insults and minor offenses.",
+          "why_it_matters": "Misunderstanding this as absolute pacifism or never resisting evil leads to passivity in the face of injustice. Jesus forbids personal revenge, not all resistance to evil. Police, military defense, and protecting victims are different contexts than personal retaliation."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "Jesus intensifies Torah's moral demands by addressing internal attitudes, not just external actions. He claims unique authority ('But I say to you') to reveal the law's deepest intent.",
+        "key_points": [
+          "Structure: Six examples of 'You have heard...but I say' show Jesus's teaching authority exceeds scribes who only quoted previous rabbis.",
+          "Jesus moves from action to motive: not just murder but anger, not just adultery but lust. He addresses the heart, not just behavior.",
+          "The goal: perfection/wholeness (v.48 teleios) reflecting God's character—impartial love even for enemies.",
+          "Non-retaliation teaching (turn other cheek) is about personal insults, not pacifism or allowing abuse. The three examples (cheek, cloak, mile) illustrate dignified non-retaliation that shames the oppressor by exceeding their demands."
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "'Turn the other cheek' means Christians must be pacifists and never defend themselves or others",
+            "correction": "Context: personal insults and minor offenses ('slap on right cheek' = backhanded insult, not life-threatening assault). Jesus forbids personal revenge, not all legitimate defense. Protecting the innocent is different from retaliating for personal offense. Even Jesus didn't literally turn the other cheek when struck (John 18:22-23).",
+            "scholars": "Walter Wink's 'Jesus and Nonviolence' shows this as creative non-violent resistance that maintains dignity, not passivity. Glen Stassen distinguishes personal retaliation from police/military roles."
+          },
+          {
+            "error": "Anger is always sin",
+            "correction": "Some manuscripts omit 'without cause,' but the point is unrighteous anger that nurses grudges. Righteous indignation against injustice is not condemned (Jesus himself showed anger, Mark 3:5). The issue is anger that degenerates into contempt (Raca = empty-headed, fool = moral reprobate).",
+            "scholars": "Most scholars note the progression: anger → insult → character assassination, each with escalating consequences"
+          },
+          {
+            "error": "Looking at a woman is adultery",
+            "correction": "The Greek 'to lust after her' (pros to epithymēsai) indicates purposeful, continued gazing with lustful intent—not accidental noticing or natural attraction. Jesus condemns cultivated lust, not sexual attraction itself.",
+            "scholars": "Craig Keener notes this parallels Jewish teaching on Job 31:1 and condemns the mental adultery scribes permitted if not acted upon"
+          }
+        ]
+      }
+    },
+    {
+      "section_id": "piety",
+      "reference": "Matthew 6:1-18",
+      "title": "Authentic Piety: Giving, Prayer, Fasting",
+      "text": [
+        "[Giving] Be careful that you don't do your charitable giving before men, to be seen by them, or else you have no reward from your Father who is in heaven.",
+        "[Prayer] When you pray, you shall not be as the hypocrites, for they love to stand and pray in the synagogues and in the corners of the streets, that they may be seen by men...",
+        "[Lord's Prayer] Pray like this: 'Our Father in heaven, may your name be kept holy. Let your Kingdom come. Let your will be done on earth as it is in heaven. Give us today our daily bread. Forgive us our debts, as we also forgive our debtors. Bring us not into temptation, but deliver us from the evil one. For yours is the Kingdom, the power, and the glory forever. Amen.'",
+        "[Fasting] Moreover when you fast, don't be like the hypocrites, with sad faces. For they disfigure their faces that they may be seen by men to be fasting..."
+      ],
+      "controversial_terms": [
+        {
+          "english": "daily bread",
+          "greek": "ἄρτον ἡμῶν τὸν ἐπιούσιον (arton hēmōn ton epiousion)",
+          "common_mistranslation": "Just today's physical bread",
+          "scholarly_translation": "Daily bread / Bread for tomorrow / Necessary sustenance",
+          "explanation": "The word 'epiousion' is extremely rare (appears nowhere else in Greek literature before this). Possible meanings: (1) daily/for today, (2) for the coming day/tomorrow, (3) supernatural/heavenly bread. Church fathers debated this extensively. Most likely: bread we need for ongoing sustenance.",
+          "why_it_matters": "This shapes whether the prayer emphasizes only immediate provision (trust for today) or includes future needs (trust for tomorrow). Majority scholarly view: necessary sustenance, trusting God for ongoing provision."
+        },
+        {
+          "english": "debts / trespasses / sins",
+          "greek": "ὀφειλήματα (opheilēmata)",
+          "common_mistranslation": "Financial debts only",
+          "scholarly_translation": "Debts (metaphor for sins/moral obligations owed to God)",
+          "explanation": "While 'opheilēma' literally means debt, Jewish usage commonly applied this metaphorically to sin (what we owe God). Luke's version (11:4) uses 'sins' (hamartias) confirming this meaning. The debt metaphor emphasizes sin as obligation owed.",
+          "why_it_matters": "This isn't about forgiving financial loans but extending the mercy we've received from God to those who wrong us. The parallel in 6:14-15 confirms this is about relational forgiveness."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "True piety is motivated by relationship with God, not human approval. Authentic spirituality is private and God-focused, contrasting with performative religion.",
+        "key_points": [
+          "Structure: Three practices (giving, prayer, fasting) follow the same pattern: don't do it for show, do it in secret, God rewards secretly.",
+          "The Lord's Prayer is MODEL not MANTRA—a pattern showing kingdom priorities: God's glory, daily dependence, relational forgiveness, spiritual protection.",
+          "Prayer structure: Three 'you' petitions (God's name, kingdom, will) precede three 'us' petitions (daily bread, forgiveness, deliverance). God's priorities come first.",
+          "The forgiveness clause is conditional: God's forgiveness flows through us to others. Refusing to forgive blocks the channel (6:14-15 amplifies this)."
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "Public prayer is always wrong",
+            "correction": "Jesus forbids prayer motivated by show and reputation, not all public prayer. He himself prayed publicly (John 11:41-42, 17:1-26). The issue is motive (to be seen vs. to commune with God), not location.",
+            "scholars": "Scot McKnight notes Jesus critiques ostentation, not public worship itself"
+          },
+          {
+            "error": "We earn God's forgiveness by forgiving others",
+            "correction": "We don't earn forgiveness but demonstrate we've received it by extending it. Unforgiveness reveals we haven't grasped the gospel. This isn't works-righteousness but evidence of genuine conversion. Matthew 18:21-35 (unforgiving servant) illustrates this.",
+            "scholars": "N.T. Wright emphasizes this reflects the 'already forgiven, now live like it' pattern throughout Jesus's teaching"
+          },
+          {
+            "error": "Repeating the Lord's Prayer verbatim is vain repetition (6:7)",
+            "correction": "Jesus condemns 'meaningless repetition' (battalogeo = babbling like pagans who thought many words compelled gods to answer). He then gives a prayer to USE. The issue is mechanical repetition without thought, not liturgical prayer itself.",
+            "scholars": "Early church (Didache 8:3) instructed praying this three times daily, showing they understood it as both model and actual prayer"
+          }
+        ]
+      }
+    },
+    {
+      "section_id": "worry",
+      "reference": "Matthew 6:25-34",
+      "title": "Do Not Worry",
+      "text": [
+        "Therefore I tell you, don't be anxious for your life: what you will eat, or what you will drink; nor yet for your body, what you will wear. Isn't life more than food, and the body more than clothing?",
+        "See the birds of the sky, that they don't sow, neither do they reap, nor gather into barns. Your heavenly Father feeds them. Aren't you of much more value than they?",
+        "Which of you by being anxious, can add one moment to his lifespan?",
+        "Why are you anxious about clothing? Consider the lilies of the field, how they grow. They don't toil, neither do they spin...",
+        "But seek first God's Kingdom and his righteousness; and all these things will be given to you as well.",
+        "Therefore don't be anxious for tomorrow, for tomorrow will be anxious for itself. Each day's own evil is sufficient."
+      ],
+      "controversial_terms": [
+        {
+          "english": "don't be anxious / don't worry",
+          "greek": "μὴ μεριμνᾶτε (mē merimnate)",
+          "common_mistranslation": "Don't plan or think about future",
+          "scholarly_translation": "Don't be anxious / Don't worry / Don't be divided in mind",
+          "explanation": "The Greek 'merimnaō' comes from 'merizō' (divide) and 'nous' (mind)—literally, to have a divided mind. It means anxious distraction that displaces trust in God, not prudent planning or legitimate concern. The prohibition is against worry that fragments focus and erodes faith.",
+          "why_it_matters": "Jesus forbids anxious worry that displaces trust in God's provision, not responsible planning for future needs. Joseph stored grain (Genesis 41), Paul collected funds for the future (2 Cor 8-9), Proverbs commends the ant's planning (6:6-8). The issue is worry vs. trust, not planning vs. spontaneity."
+        },
+        {
+          "english": "seek first",
+          "greek": "ζητεῖτε δὲ πρῶτον (zēteite de prōton)",
+          "common_mistranslation": "Seek only",
+          "scholarly_translation": "Seek first / Make primary priority",
+          "explanation": "'Prōton' means first in priority, not exclusively. Jesus doesn't say 'seek only God's kingdom and ignore practical needs' but 'prioritize God's kingdom and God will provide practical needs.' The promise is that when we get priorities right, provision follows.",
+          "why_it_matters": "This isn't escapism from practical life but proper ordering of priorities. Work, planning, and providing for family are good (1 Tim 5:8) when they flow from kingdom priorities rather than anxious self-sufficiency."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "Jesus prohibits anxious worry that erodes trust in God's fatherly care, not prudent planning. Kingdom priorities replace anxiety with confidence in divine provision.",
+        "key_points": [
+          "Context: This follows the 'two masters' teaching (6:24)—you can't serve God and Money. Anxiety about provision reveals trust in money rather than God.",
+          "Birds and lilies argument: If God provides for lesser creatures, how much more for his children? This is 'light-to-heavy' rabbinic reasoning (qal vahomer).",
+          "Verse 33 is the solution: anxiety is displaced not by positive thinking but by kingdom-focused living. When God's kingdom and righteousness are primary, provision follows.",
+          "Verse 34 is realistic: Each day has enough trouble without borrowing tomorrow's. This is limited capacity wisdom, not denying future challenges."
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "Christians shouldn't save, plan, or prepare for the future",
+            "correction": "Jesus forbids anxiety, not prudence. Storing grain, buying insurance, saving for retirement—these aren't lack of faith but wise stewardship. The test: Does planning flow from trust or displace it? Am I providing responsibly or worrying anxiously?",
+            "scholars": "Craig Keener notes Jewish wisdom tradition (Proverbs) commends planning; Jesus targets anxiety that reveals misplaced trust"
+          },
+          {
+            "error": "If you have faith, you'll never lack",
+            "correction": "This isn't prosperity gospel. Many faithful people face genuine lack. The promise is God's faithful provision for needs, not guarantee of abundance. Paul learned contentment in both plenty and want (Philippians 4:11-13). God's provision sometimes comes through community (Acts 2:44-45, 2 Cor 8:13-15).",
+            "scholars": "Scot McKnight critiques prosperity gospel misuse of this passage—Jesus addresses anxiety, not wealth accumulation"
+          }
+        ]
+      }
+    },
+    {
+      "section_id": "judging",
+      "reference": "Matthew 7:1-6",
+      "title": "Judging Others",
+      "text": [
+        "Don't judge, so that you won't be judged. For with whatever judgment you judge, you will be judged; and with whatever measure you measure, it will be measured to you.",
+        "Why do you see the speck that is in your brother's eye, but don't consider the beam that is in your own eye? Or how will you tell your brother, 'Let me remove the speck from your eye,' and behold, the beam is in your own eye?",
+        "You hypocrite! First remove the beam out of your own eye, and then you can see clearly to remove the speck out of your brother's eye.",
+        "Don't give that which is holy to the dogs, neither throw your pearls before the pigs, lest perhaps they trample them under their feet, and turn and tear you to pieces."
+      ],
+      "controversial_terms": [
+        {
+          "english": "judge",
+          "greek": "κρίνετε (krinete)",
+          "common_mistranslation": "Never evaluate or discern",
+          "scholarly_translation": "Judge / Condemn hypocritically",
+          "explanation": "The Greek 'krinō' has a range: evaluate, discern, judge, condemn. Context determines meaning. Here, the speck/beam illustration shows Jesus condemns hypocritical, harsh judgment—judging others while ignoring your own greater faults. He doesn't prohibit all moral discernment. Elsewhere Jesus commands 'judge with righteous judgment' (John 7:24) and 'you will know them by their fruits' (Matt 7:16) requires evaluation.",
+          "why_it_matters": "Misreading this as absolute moral relativism ('Who are you to judge?') contradicts Jesus's other teaching and the church's role to exercise discipline (Matthew 18:15-18, 1 Cor 5:12-13). The issue is hypocritical, condemning judgment from a position of self-righteousness, not all discernment."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "Jesus forbids hypocritical, harsh, condemning judgment while assuming appropriate discernment of sin and character. The standard: you'll be judged by the measure you use on others.",
+        "key_points": [
+          "The speck/beam metaphor: Proportion matters. Harshly judging minor faults in others while ignoring your own major faults is hypocrisy. The solution isn't 'don't help your brother with his speck' but 'deal with your beam FIRST, THEN help him.'",
+          "Verse 6 immediately requires discernment: Don't give holy things to 'dogs' (harsh term for those who reject the gospel) or pearls to 'pigs' (those who trample truth). This requires judging who is receptive and who is hostile.",
+          "The principle: The judgment you give is the judgment you'll receive—from God and from others. Merciful judgment receives mercy (5:7), harsh judgment receives harshness.",
+          "Jesus assumes community where believers help each other with sin—but from humility, not superiority."
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "Christians should never evaluate, correct, or call out sin",
+            "correction": "Jesus elsewhere commands church discipline (Matt 18:15-18), Paul commands judging within the church (1 Cor 5:12), and evaluating teachers is essential (1 John 4:1). The issue is the spirit and standard of judgment—hypocritical vs. humble, harsh vs. redemptive.",
+            "scholars": "D.A. Carson's 'Matthew' commentary notes Jesus prohibits condemning judgment that usurps God's role, not all moral discernment"
+          },
+          {
+            "error": "This supports moral relativism—'You have your truth, I have mine'",
+            "correction": "Jesus operates from objective moral standards (Torah, kingdom ethics). He doesn't say 'no truth exists' but 'don't judge hypocritically.' The whole Sermon assumes moral absolutes that Jesus authoritatively interprets. The caution is against self-righteous condemnation, not moral clarity.",
+            "scholars": "N.T. Wright emphasizes Jesus's Jewish context assumed objective morality; the issue is hypocritical application, not relativism"
+          }
+        ]
+      }
+    },
+    {
+      "section_id": "golden_rule",
+      "reference": "Matthew 7:7-12",
+      "title": "Ask, Seek, Knock & The Golden Rule",
+      "text": [
+        "Ask, and it will be given you. Seek, and you will find. Knock, and it will be opened for you. For everyone who asks receives. He who seeks finds. To him who knocks it will be opened.",
+        "Or who is there among you who, if his son asks him for bread, will give him a stone? Or if he asks for a fish, who will give him a serpent?",
+        "If you then, being evil, know how to give good gifts to your children, how much more will your Father who is in heaven give good things to those who ask him!",
+        "Therefore, whatever you desire for men to do to you, you shall also do to them; for this is the law and the prophets."
+      ],
+      "controversial_terms": [],
+      "scholarly_interpretation": {
+        "summary": "God's generosity in responding to prayer grounds the Golden Rule's call to treat others generously. Both reflect the Father's character.",
+        "key_points": [
+          "The ask/seek/knock progression: Intensifying persistence. The verbs are present tense (keep asking, keep seeking, keep knocking), emphasizing sustained prayer.",
+          "The father analogy: Human fathers, though 'evil' (affected by sin), still give good gifts. How much more God, the perfect Father? This is qal vahomer (light to heavy) reasoning again.",
+          "The Golden Rule is positively framed (DO good) vs. Hillel's negative framing (DON'T do harm). Positive requires active love, not just avoiding harm.",
+          "Jesus claims the Golden Rule summarizes 'the law and the prophets'—the entire ethical system of Torah."
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "God grants whatever we ask, no conditions",
+            "correction": "Context: Asking in the relationship of children to Father. James 4:3 clarifies—asking wrongly, with selfish motives, gets nothing. Jesus himself prayed 'not my will but yours' (26:39). The promise is that God responds to His children who ask according to His will (1 John 5:14).",
+            "scholars": "Most commentators note this assumes prayers aligned with God's character and kingdom purposes"
+          },
+          {
+            "error": "The Golden Rule is self-centered—do to others what YOU want",
+            "correction": "The rule assumes what you want is good and reasonable. It requires empathy—treating others how you'd want to be treated in their situation. This isn't 'give everyone what I want' but 'extend to others the respect, kindness, and justice you'd want if positions were reversed.'",
+            "scholars": "Ethicists note this is NOT moral relativism but assumes shared human dignity and need for respect, justice, compassion"
+          }
+        ]
+      }
+    },
+    {
+      "section_id": "two_ways",
+      "reference": "Matthew 7:13-27",
+      "title": "Two Ways: Gates, Trees, Builders",
+      "text": [
+        "[Narrow Gate] Enter in by the narrow gate; for the gate is wide and the way is broad that leads to destruction, and there are many who enter in by it. How narrow is the gate and the way is restricted that leads to life! There are few who find it.",
+        "[False Prophets] Beware of false prophets, who come to you in sheep's clothing, but inwardly are ravening wolves. By their fruits you will know them...",
+        "[Lord, Lord] Not everyone who says to me, 'Lord, Lord,' will enter into the Kingdom of Heaven, but he who does the will of my Father who is in heaven. Many will tell me in that day, 'Lord, Lord, didn't we prophesy in your name, in your name cast out demons, and in your name do many mighty works?' Then I will tell them, 'I never knew you. Depart from me, you who work iniquity.'",
+        "[Wise Builder] Everyone therefore who hears these words of mine and does them, I will liken him to a wise man who built his house on a rock. The rain came down, the floods came, and the winds blew and beat on that house; and it didn't fall, for it was founded on the rock. Everyone who hears these words of mine and doesn't do them will be like a foolish man who built his house on the sand..."
+      ],
+      "controversial_terms": [
+        {
+          "english": "I never knew you",
+          "greek": "οὐδέποτε ἔγνων ὑμᾶς (oudepote egnōn hymas)",
+          "common_mistranslation": "I never had information about you",
+          "scholarly_translation": "I never had intimate relationship with you",
+          "explanation": "The Greek 'ginōskō' (know) often indicates intimate, covenantal relationship, not mere information. God's 'knowing' in Scripture implies choosing, loving, being in covenant with (Genesis 4:1, Amos 3:2, Jeremiah 1:5). The tragedy: These people did works in Jesus's name but never had genuine relationship with him.",
+          "why_it_matters": "Orthodoxy (right doctrine) and ministry activity don't replace relationship. Jesus rejects those who have ministry success but practice 'lawlessness' (anomia)—living contrary to God's will despite using Jesus's name."
+        }
+      ],
+      "scholarly_interpretation": {
+        "summary": "Jesus concludes with urgent warnings: The kingdom path is narrow, false prophets exist, profession without obedience is empty, and only those who build life on his words will endure judgment.",
+        "key_points": [
+          "Three contrasts: Wide vs. narrow gate, good vs. bad trees, wise vs. foolish builder. All emphasize choosing the harder, less popular path of obedience.",
+          "The false prophets warning: Discernment by fruit, not claims or charisma. Even prophecy, exorcism, and miracles can be performed by those Jesus doesn't know (7:22-23).",
+          "The terrifying warning: Religious activity in Jesus's name doesn't equal relationship. What matters: 'doing the will of my Father' and genuine relationship with Jesus ('I never knew you').",
+          "The conclusion (7:24-27): Hearing alone doesn't save. Obedience to Jesus's teaching is the foundation that endures judgment. The storm represents eschatological testing/judgment.",
+          "Audience reaction (7:28-29): They were astonished because Jesus taught 'as one having authority'—not citing other rabbis but speaking with direct divine authority ('I say to you')."
+        ],
+        "common_misinterpretations": [
+          {
+            "error": "The narrow gate is about finding the right theology or joining the right denomination",
+            "correction": "The narrow gate is the path of discipleship—costly obedience to Jesus's radical kingdom ethics taught in this Sermon. It's narrow because it requires self-denial, internal righteousness, enemy love, and suffering. The way is restricted because few choose this path.",
+            "scholars": "Dale Allison notes the 'Two Ways' motif was common in Judaism (Deuteronomy 30:15-20, Psalm 1) and early Christianity (Didache 1-6)"
+          },
+          {
+            "error": "Works are required for salvation—'faith alone' is contradicted",
+            "correction": "Jesus distinguishes genuine from false profession. The issue isn't works vs. faith but genuine faith vs. empty profession. James 2:14-26 makes this same argument: Faith without works is dead, not real faith. The works Jesus demands flow from transforming grace, not human effort earning salvation. The builders both face the storm (judgment); only the obedient survive.",
+            "scholars": "Protestant commentators harmonize this with Paul: Saving faith produces obedience (Ephesians 2:8-10). We're saved BY grace FOR good works, not by works."
+          },
+          {
+            "error": "If you do miracles in Jesus's name, you're saved",
+            "correction": "Jesus's warning: Miracles, prophecy, even exorcism in his name don't prove relationship. What matters is doing God's will (obedience) and being known by Jesus (relationship). The problem is anomia (lawlessness)—these people perform spiritual works while living in rebellion.",
+            "scholars": "This warns against separating spiritual power from holy living. Even Judas cast out demons (Matthew 10:1-4) while betraying Jesus."
+          }
+        ]
+      }
+    }
+  ],
+
+  "overall_scholarly_interpretation": {
+    "summary": "The Sermon on the Mount presents Jesus as the authoritative interpreter and fulfiller of Torah, the New Moses giving renewed covenant ethics from a mountain. It describes the character, conduct, and priorities of kingdom citizens—those who have entered God's kingdom through repentance and faith. This is not a law to be kept for salvation but the 'law of Christ' (Galatians 6:2) for disciples.",
+    "major_themes": [
+      "Kingdom ethics: Describes how kingdom citizens live now, anticipating the kingdom's full arrival. The ethics are both present demand and future hope.",
+      "Jesus's authority: The repeated 'But I say to you' claims authority to interpret Torah definitively, even superseding Moses in some applications.",
+      "Internal righteousness: Jesus radicalizes Torah from external compliance to internal transformation—anger is murder, lust is adultery.",
+      "Eschatological urgency: The narrow gate, coming judgment, and building on rock all assume approaching consummation requiring decision now.",
+      "Christological center: The Sermon doesn't make sense apart from Jesus. He is the fulfillment of Torah, the judge who will say 'I never knew you,' the rock foundation."
+    ],
+    "historical_context": [
+      "Jesus presents a renewed covenant while affirming Torah's authority. This addresses Jewish debates about how to keep Torah faithfully.",
+      "The Pharisees represent one approach (external piety, tradition). Jesus critiques their hypocrisy while intensifying moral demands.",
+      "The Beatitudes reverse Roman values (power, wealth, honor) and offer hope to those marginalized by empire and religious elite.",
+      "The eschatological warnings fit first-century Jewish expectation of coming judgment and kingdom establishment."
+    ],
+    "application_debates": [
+      {
+        "question": "Is this ethic only for the Millennial Kingdom (Dispensationalism)?",
+        "position_1": "Some dispensationalists argue this is kingdom law for future millennium, not church age.",
+        "position_2": "Most scholars argue Jesus expects current obedience from disciples, though perfection awaits consummation. Matthew's Gospel doesn't suggest postponing obedience.",
+        "consensus": "Majority view: These are kingdom ethics for disciples now, empowered by the Spirit, though full realization awaits the kingdom's consummation."
+      },
+      {
+        "question": "Can anyone actually live this way?",
+        "position_1": "Luther: The Sermon crushes self-righteousness, driving us to Christ for mercy (law's convicting function).",
+        "position_2": "Anabaptist/Radical Reformation: The Sermon is the literal ethic Jesus expects disciples to follow, empowered by the Spirit.",
+        "position_3": "Catholic/Orthodox: The Sermon describes maturity in grace—progressive sanctification toward perfection.",
+        "consensus": "Most scholars: The Sermon is both convicting (showing our sin) and genuinely prescriptive (the Spirit empowers obedience), though perfection awaits glorification."
+      },
+      {
+        "question": "Does this apply to societies/governments or only individual discipleship?",
+        "position_1": "Anabaptist/Two Kingdoms: This is ethic for church, not state. Government still bears sword (Romans 13).",
+        "position_2": "Social Gospel/Liberation Theology: This ethic should transform society—work for justice, peace, economic equality.",
+        "position_3": "Reformation/Two Kingdoms: Christians live under both kingdom ethics (as disciples) and common grace norms (as citizens).",
+        "consensus": "No consensus. Most agree the Sermon primarily addresses individual disciples and church community, but Christians should work to influence society toward these values where possible."
+      }
+    ],
+    "why_past_interpretations_were_incorrect": [
+      {
+        "error": "Medieval focus on 'counsels of perfection' for monks vs. 'precepts' for laity",
+        "why_wrong": "Jesus addresses all his followers, not creating two-tier spirituality. The Sermon is for every disciple, though recognizing growth toward maturity.",
+        "correction": "Reformation recovered universal call to discipleship—all Christians called to this ethic empowered by grace."
+      },
+      {
+        "error": "Liberal Protestantism: Jesus taught universal ethics of love and fatherhood of God, no need for atonement or supernatural",
+        "why_wrong": "This strips away Jesus's Jewish apocalyptic context, his claims to divine authority, and the Sermon's warnings of judgment. It reduces Jesus to moral teacher.",
+        "correction": "Jesus's ethic presupposes eschatological kingdom breaking in, need for righteousness exceeding Pharisees (only possible through grace), and Christological center."
+      },
+      {
+        "error": "Legalistic reading: Keep these rules perfectly to earn salvation",
+        "why_wrong": "This ignores the Beatitudes' indicative (you are blessed), the impossible standard (5:48 be perfect), and the gospel's grace foundation. The Sermon assumes transformation by grace, not earning it.",
+        "correction": "The Sermon is 'law of Christ' for those already in the kingdom by grace. It describes empowered discipleship, not ladder to climb for salvation."
+      }
+    ]
+  },
+
+  "conclusion_summary": "The Sermon on the Mount is Jesus's manifesto for kingdom living. It describes the character, priorities, and conduct of those who have entered God's kingdom through repentance and faith. Jesus claims unique authority to interpret Torah definitively, intensifying its demands from external to internal, from behavior to motive. The ethics are radical—enemy love, non-retaliation, internal purity, trust over anxiety, humility over pride. Yet these are not impossible ideals but empowered realities for disciples indwelt by the Spirit. The Sermon both convicts (showing us our sin and need for grace) and prescribes (showing us how to live as kingdom citizens). Its ultimate goal: reflecting the Father's perfect character (5:48) and glorifying God through visible, authentic righteousness (5:16). This is discipleship—costly, joyful, and empowered by the presence of the kingdom already breaking into the present age."
+}
+;

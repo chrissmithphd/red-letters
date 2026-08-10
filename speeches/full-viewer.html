@@ -110,6 +110,7 @@
             font-size: 0.85rem;
             color: #666;
             font-style: italic;
+            margin-bottom: 1rem;
         }
 
         .annotations {
@@ -151,20 +152,23 @@
             color: #333;
             display: inline-block;
             margin: 0.25rem 0;
+            font-size: 1.05rem;
         }
 
         .mistranslation {
-            background: #ffe4e4;
+            background: #f5f5f5;
             padding: 0.5rem;
             margin: 0.5rem 0;
             border-radius: 4px;
+            border-left: 3px solid #999;
         }
 
         .correct-translation {
-            background: #e4ffe4;
+            background: #f5f5f5;
             padding: 0.5rem;
             margin: 0.5rem 0;
             border-radius: 4px;
+            border-left: 3px solid #333;
         }
 
         .discussion {
@@ -189,6 +193,12 @@
             margin-bottom: 1rem;
         }
 
+        .discussion h4 {
+            color: #666;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
         .discussion ul {
             margin-left: 2rem;
             margin-bottom: 1rem;
@@ -199,29 +209,32 @@
         }
 
         .misinterpretation {
-            background: #fff5f5;
+            background: #fafafa;
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 4px;
-            border-left: 4px solid #ff6b6b;
+            border-left: 4px solid #999;
         }
 
         .misinterpretation h4 {
-            color: #c92a2a;
+            color: #555;
             margin-bottom: 0.5rem;
+            font-weight: normal;
+            font-style: italic;
         }
 
         .correction {
-            background: #f0fff0;
+            background: #fafafa;
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 4px;
-            border-left: 4px solid #51cf66;
+            border-left: 4px solid #333;
         }
 
         .correction h4 {
-            color: #2b8a3e;
+            color: #333;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .extra-biblical {
@@ -235,6 +248,15 @@
         .extra-biblical h4 {
             color: #1971c2;
             margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .section-interpretation {
+            background: #fafafa;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            border-left: 4px solid #8b0000;
         }
 
         @media (max-width: 968px) {
@@ -257,38 +279,14 @@
 
     <div id="content"></div>
 
+    <script src="sermon-data.js"></script>
     <script>
-        async function loadSpeech(speechId = 1) {
-            try {
-                const filename = `json-output/${String(speechId).padStart(2, '0')}-sermon-on-the-mount.json`;
-                console.log('Attempting to load:', filename);
-                const response = await fetch(filename);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
-                }
-
-                const data = await response.json();
-                console.log('Data loaded successfully:', data.title);
-                renderSpeech(data);
-            } catch (error) {
-                console.error('Error loading speech:', error);
-                document.getElementById('content').innerHTML = `
-                    <div style="text-align:center;padding:2rem;">
-                        <p style="color:red;font-size:1.2rem;">Error loading speech data</p>
-                        <p style="color:#666;margin-top:1rem;">Error details: ${error.message}</p>
-                        <p style="color:#666;margin-top:0.5rem;">Make sure you're viewing this through the web server (http://localhost:8080/viewer.html)</p>
-                        <p style="color:#666;margin-top:0.5rem;">Current URL: ${window.location.href}</p>
-                    </div>
-                `;
-            }
-        }
-
         function renderSpeech(data) {
             const content = document.getElementById('content');
+            let html = '';
 
             // Metadata section
-            let html = `
+            html += `
                 <div class="metadata">
                     <h2>${data.title}</h2>
                     <div class="metadata-grid">
@@ -323,9 +321,13 @@
             data.sections.forEach(section => {
                 html += `<h2>${section.title}</h2>`;
                 html += `<div class="verse-ref">${section.reference}</div>`;
-                section.text.forEach(verse => {
-                    html += `<div class="verse"><p class="verse-text">${verse}</p></div>`;
-                });
+                if (Array.isArray(section.text)) {
+                    section.text.forEach(verse => {
+                        html += `<div class="verse"><p class="verse-text">${verse}</p></div>`;
+                    });
+                } else {
+                    html += `<div class="verse"><p class="verse-text">${section.text}</p></div>`;
+                }
             });
             html += '</div>';
 
@@ -341,10 +343,10 @@
                                 <h4>"${term.english}"</h4>
                                 <div class="greek-word">${term.greek}</div>
                                 <div class="mistranslation">
-                                    <strong>❌ Common mistranslation:</strong> ${term.common_mistranslation}
+                                    <strong>Common mistranslation:</strong> ${term.common_mistranslation}
                                 </div>
                                 <div class="correct-translation">
-                                    <strong>✓ Scholarly translation:</strong> ${term.scholarly_translation}
+                                    <strong>Scholarly translation:</strong> ${term.scholarly_translation}
                                 </div>
                                 <p style="margin-top:0.5rem;"><strong>Explanation:</strong> ${term.explanation}</p>
                                 <p style="margin-top:0.5rem;font-style:italic;color:#666;"><strong>Why it matters:</strong> ${term.why_it_matters}</p>
@@ -357,13 +359,13 @@
             html += '</div>'; // end annotations
             html += '</div>'; // end container
 
-            // Discussion section
+            // Discussion section - FULL ANALYSIS
             html += '<div class="discussion">';
             html += '<h2>Scholarly Interpretation & Common Misunderstandings</h2>';
 
             // Extra-biblical context
             if (data.extra_biblical_context) {
-                html += '<h3>Extra-Biblical Sources & Context</h3>';
+                html += '<h3>Extra-Biblical Sources & Historical Context</h3>';
 
                 if (data.extra_biblical_context.dead_sea_scrolls) {
                     html += '<h4>Dead Sea Scrolls Parallels</h4>';
@@ -384,7 +386,21 @@
                         html += `
                             <div class="extra-biblical">
                                 <h4>${item.source}</h4>
-                                ${item.text ? `<p><em>"${item.text}"</em></p>` : ''}
+                                ${item.text ? `<p style="font-style:italic;">"${item.text}"</p>` : ''}
+                                <p><strong>Parallel:</strong> ${item.parallel}</p>
+                                <p><strong>Significance:</strong> ${item.significance}</p>
+                            </div>
+                        `;
+                    });
+                }
+
+                if (data.extra_biblical_context.old_testament) {
+                    html += '<h4>Old Testament Connections</h4>';
+                    data.extra_biblical_context.old_testament.forEach(item => {
+                        html += `
+                            <div class="extra-biblical">
+                                <h4>${item.reference}</h4>
+                                ${item.text ? `<p style="font-style:italic;">"${item.text}"</p>` : ''}
                                 <p><strong>Parallel:</strong> ${item.parallel}</p>
                                 <p><strong>Significance:</strong> ${item.significance}</p>
                             </div>
@@ -393,13 +409,14 @@
                 }
             }
 
-            // Scholarly interpretation by section
+            // Section-by-section scholarly interpretation
             data.sections.forEach(section => {
                 if (section.scholarly_interpretation) {
-                    html += `<h3>${section.title}: Scholarly Consensus</h3>`;
-                    html += `<p><strong>Summary:</strong> ${section.scholarly_interpretation.summary}</p>`;
+                    html += `<div class="section-interpretation">`;
+                    html += `<h3>${section.title}: Scholarly Analysis</h3>`;
+                    html += `<p style="margin-bottom:1rem;"><strong>Summary:</strong> ${section.scholarly_interpretation.summary}</p>`;
 
-                    if (section.scholarly_interpretation.key_points) {
+                    if (section.scholarly_interpretation.key_points && section.scholarly_interpretation.key_points.length > 0) {
                         html += '<h4>Key Points</h4><ul>';
                         section.scholarly_interpretation.key_points.forEach(point => {
                             html += `<li>${point}</li>`;
@@ -407,61 +424,89 @@
                         html += '</ul>';
                     }
 
-                    if (section.scholarly_interpretation.common_misinterpretations) {
+                    if (section.scholarly_interpretation.common_misinterpretations && section.scholarly_interpretation.common_misinterpretations.length > 0) {
                         html += '<h4>Common Misinterpretations</h4>';
                         section.scholarly_interpretation.common_misinterpretations.forEach(mis => {
                             html += `
                                 <div class="misinterpretation">
-                                    <h4>❌ Error: ${mis.error}</h4>
+                                    <h4>Common Error: ${mis.error}</h4>
                                 </div>
                                 <div class="correction">
-                                    <h4>✓ Correction: ${mis.correction}</h4>
+                                    <h4>Scholarly Correction: ${mis.correction}</h4>
                                     ${mis.scholars ? `<p style="margin-top:0.5rem;"><em>Scholars: ${mis.scholars}</em></p>` : ''}
                                 </div>
                             `;
                         });
                     }
+                    html += `</div>`;
                 }
             });
 
             // Overall interpretation
             if (data.overall_scholarly_interpretation) {
-                html += '<h3>Overall Scholarly Interpretation</h3>';
+                html += '<h2 style="margin-top:2rem;">Overall Scholarly Interpretation</h2>';
                 html += `<p>${data.overall_scholarly_interpretation.summary}</p>`;
 
                 if (data.overall_scholarly_interpretation.major_themes) {
-                    html += '<h4>Major Themes</h4><ul>';
+                    html += '<h3>Major Themes</h3><ul>';
                     data.overall_scholarly_interpretation.major_themes.forEach(theme => {
                         html += `<li>${theme}</li>`;
                     });
                     html += '</ul>';
                 }
 
+                if (data.overall_scholarly_interpretation.historical_context) {
+                    html += '<h3>Historical Context</h3><ul>';
+                    data.overall_scholarly_interpretation.historical_context.forEach(context => {
+                        html += `<li>${context}</li>`;
+                    });
+                    html += '</ul>';
+                }
+
+                if (data.overall_scholarly_interpretation.application_debates) {
+                    html += '<h3>Ongoing Scholarly Debates</h3>';
+                    data.overall_scholarly_interpretation.application_debates.forEach(debate => {
+                        html += `
+                            <div style="background:#f9f9f9;padding:1rem;margin:1rem 0;border-radius:4px;">
+                                <h4 style="color:#8b0000;">${debate.question}</h4>
+                                ${debate.position_1 ? `<p><strong>Position 1:</strong> ${debate.position_1}</p>` : ''}
+                                ${debate.position_2 ? `<p><strong>Position 2:</strong> ${debate.position_2}</p>` : ''}
+                                ${debate.position_3 ? `<p><strong>Position 3:</strong> ${debate.position_3}</p>` : ''}
+                                ${debate.consensus ? `<p style="margin-top:0.5rem;"><strong>Consensus:</strong> ${debate.consensus}</p>` : ''}
+                            </div>
+                        `;
+                    });
+                }
+
                 if (data.overall_scholarly_interpretation.why_past_interpretations_were_incorrect) {
-                    html += '<h4>Why Past Interpretations Were Incorrect</h4>';
+                    html += '<h3>Why Past Interpretations Were Incorrect</h3>';
                     data.overall_scholarly_interpretation.why_past_interpretations_were_incorrect.forEach(item => {
                         html += `
                             <div class="misinterpretation">
-                                <h4>❌ Historical Error: ${item.error}</h4>
-                                <p><strong>Why wrong:</strong> ${item.why_wrong}</p>
+                                <h4>Historical Error: ${item.error}</h4>
+                                <p style="margin-top:0.5rem;"><strong>Why incorrect:</strong> ${item.why_wrong}</p>
                             </div>
                             <div class="correction">
-                                <h4>✓ Modern Understanding: ${item.correction}</h4>
+                                <h4>Modern Understanding: ${item.correction}</h4>
                             </div>
                         `;
                     });
                 }
             }
 
-            html += `<h3>Conclusion</h3><p>${data.conclusion_summary}</p>`;
+            html += `<h2 style="margin-top:2rem;">Conclusion</h2><p>${data.conclusion_summary}</p>`;
 
             html += '</div>'; // end discussion
 
             content.innerHTML = html;
         }
 
-        // Load the first speech on page load
-        loadSpeech(1);
+        // Render with data from sermon-data.js
+        if (typeof SPEECH_DATA !== 'undefined') {
+            renderSpeech(SPEECH_DATA);
+        } else {
+            document.getElementById('content').innerHTML = '<p style="text-align:center;color:red;padding:2rem;">Error: Speech data not loaded. Make sure sermon-data.js is in the same directory.</p>';
+        }
     </script>
 </body>
 </html>
