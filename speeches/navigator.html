@@ -422,11 +422,11 @@
             { id: 4, title: "Sermon on the Plain", date: "Spring 28 CE", ref: "Luke 6:17-49", available: true },
             { id: 5, title: "Parables by the Sea", date: "Summer 28 CE", ref: "Matthew 13", available: true },
             { id: 6, title: "Bread of Life Discourse", date: "Spring 29 CE", ref: "John 6:22-71", available: true },
-            { id: 7, title: "Feast of Tabernacles", date: "Fall 29 CE", ref: "John 7-8", available: false },
-            { id: 8, title: "Teaching on Defilement", date: "Summer 29 CE", ref: "Matthew 15", available: false },
-            { id: 9, title: "Feeding of 4,000", date: "Summer 29 CE", ref: "Matthew 15:32-39", available: false },
+            { id: 7, title: "Feast of Tabernacles", date: "Fall 29 CE", ref: "John 7-8", available: true },
+            { id: 8, title: "Teaching on Defilement", date: "Summer 29 CE", ref: "Matthew 15", available: true },
+            { id: 9, title: "Feeding of 4,000", date: "Summer 29 CE", ref: "Matthew 15:32-39", available: true },
             { id: 10, title: "Teaching on Forgiveness", date: "Fall 29 CE", ref: "Matthew 18", available: false },
-            { id: 11, title: "Feast of Dedication", date: "Winter 29/30 CE", ref: "John 10:22-39", available: false },
+            { id: 11, title: "Feast of Dedication", date: "Winter 29/30 CE", ref: "John 10:22-39", available: true },
             { id: 12, title: "Journey to Jerusalem", date: "Winter/Spring 30 CE", ref: "Luke 9:51-18:34", available: false },
             { id: 13, title: "Teaching at Jericho", date: "Spring 30 CE", ref: "Luke 18:35-19:27", available: false },
             { id: 14, title: "Triumphal Entry", date: "March 29, 30 CE", ref: "Matthew 21", available: false },
@@ -520,7 +520,11 @@
                 3: 'sermon-on-the-mount',
                 4: 'sermon-on-the-plain',
                 5: 'parables-by-the-sea',
-                6: 'bread-of-life-teaching'
+                6: 'bread-of-life-teaching',
+                7: 'feast-of-tabernacles-teaching',
+                8: 'teaching-on-defilement',
+                9: 'feeding-of-4000-discourse',
+                11: 'feast-of-dedication-teaching'
             };
             return filenames[id] || 'unknown';
         }
