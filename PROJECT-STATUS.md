@@ -1,7 +1,7 @@
 # Red Letters Project - Handoff Summary
 
 **Date:** 2026-08-10  
-**Status:** 9 of 20 speeches complete (45%), 3 in progress (50% when done)
+**Status:** 10 of 20 speeches complete (50%), 2 failed (timeouts)
 
 ## Project Goal
 Create comprehensive scholarly analysis of Jesus's 20 public speeches with:
@@ -13,7 +13,7 @@ Create comprehensive scholarly analysis of Jesus's 20 public speeches with:
 
 ## Completed Work
 
-### JSON Files Created (9 speeches)
+### JSON Files Created (10 speeches)
 All in `speeches/json-output/`:
 1. `01-nazareth-synagogue-sermon.json` (36KB) - Isaiah 61 fulfillment
 2. `02-capernaum-synagogue-teaching.json` (19KB) - Authority demonstration
@@ -24,6 +24,7 @@ All in `speeches/json-output/`:
 7. `07-feast-of-tabernacles-teaching.json` (15KB) - Living water, Light, "I AM"
 8. `08-teaching-on-defilement.json` (29KB) - Internal vs external righteousness
 9. `09-feeding-of-4000-discourse.json` (21KB) - Compassion, leaven warning
+10. `11-feast-of-dedication-teaching.json` (26KB) - "I and Father are one", Psalm 82
 
 ### Web Viewers
 - `speeches/viewer-v2.html` - Single speech viewer (side-by-side layout)
@@ -36,13 +37,12 @@ All in `speeches/json-output/`:
 - Branch: master
 - Ready to push to GitHub
 
-## In Progress (Agents Running)
-**3 agents currently generating:**
-- #10 Teaching on Forgiveness (Matthew 18) - 35-40KB target
-- #11 Feast of Dedication (John 10:22-39) - 25-30KB target
-- #12 Journey to Jerusalem (Luke 9:51-18:34) - 45-50KB target
+## Failed Generations (Need Retry)
+**2 speeches timed out during generation:**
+- #10 Teaching on Forgiveness (Matthew 18) - 35-40KB target - **TIMEOUT**
+- #12 Journey to Jerusalem (Luke 9:51-18:34) - 45-50KB target - **TIMEOUT**
 
-**Check status:** These may have completed. Look for files in `speeches/json-output/`
+These are large/complex passages. Next session should generate these with shorter sections or manually.
 
 ## JSON Format Standard
 
@@ -130,7 +130,18 @@ All in `speeches/json-output/`:
 }
 ```
 
-## Remaining Speeches (11 total, 8 after in-progress complete)
+## Remaining Speeches (10 total)
+
+### Priority (Failed, Need Retry):
+10. **Teaching on Forgiveness** (Matthew 18:1-35)
+    - Greatest in Kingdom, Church discipline, 70x7, Unforgiving Servant
+    - Target: 35-40KB
+    - **Timed out - generate in smaller chunks**
+
+12. **Journey to Jerusalem** (Luke 9:51-18:34)  
+    - HUGE: Cost of discipleship, Good Samaritan, Prayer, Rich fool, Lost parables
+    - Target: 45-50KB
+    - **Timed out - very long, be selective with key teachings**
 
 ### Need to Generate:
 13. **Teaching at Jericho** (Luke 18:35-19:27)
